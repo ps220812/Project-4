@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2">
         
+        </ListBox>
+        <Button Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" x:Name="btOrder" Click="btOrder_Click">
+         Laat bestellingen zien.
+        </Button>
+        <Button Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" x:Name="btStatus" Click="btStatus_Click">
+         Bestelling status wordt veranderd
+        </Button>
+        <Button Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="2" x:Name="btIngredients" Click="btIngredients_Click">
+         Ingredienten toevoegen. 
+        </Button>
+        <Button Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2" x:Name="btManagment" Click="btManagment_Click">
+        Managment Menu
+        </Button>
     </Grid>
 </Window>

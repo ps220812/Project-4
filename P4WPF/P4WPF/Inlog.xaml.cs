@@ -16,33 +16,13 @@ using System.Windows.Shapes;
 namespace P4WPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Inlog.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Inlog : Page
     {
-        public MainWindow()
+        public Inlog()
         {
             InitializeComponent();
-        }
-
-        private void btOrder_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btStatus_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btIngredients_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btManagment_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
