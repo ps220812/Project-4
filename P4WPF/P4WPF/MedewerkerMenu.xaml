@@ -13,8 +13,8 @@
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="10" />
             <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="10" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
@@ -26,20 +26,22 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2">
+        <ListBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3">
 
         </ListBox>
-        <Button Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" x:Name="btOrder" Click="btOrder_Click">
+        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="4">
+        <Button Height="50px" x:Name="btOrder" Click="btOrder_Click">
             Show the orders.
         </Button>
-        <Button Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" x:Name="btStatus" Click="btStatus_Click">
+            <Button Height="50px" Margin="0,10,0,0" x:Name="btStatus" Click="btStatus_Click">
             Change order status
         </Button>
-        <Button Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="2" x:Name="btIngredients" Click="btIngredients_Click">
+            <Button Height="50px" Margin="0,10,0,0" x:Name="btIngredients" Click="btIngredients_Click">
             Add ingredients.
         </Button>
-        <Button Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2" x:Name="btLogout" Click="btLogout_Click">
+            <Button Height="50px" Margin="0,10,0,0" x:Name="btLogout" Click="btLogout_Click">
            log off
         </Button>
+        </StackPanel>
     </Grid>
 </Page>
