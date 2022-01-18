@@ -8,26 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Inlog">
 
-    <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-
-            <ColumnDefinition Width="10" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="10" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="10" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="10" />
-        </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="50"></TextBox>
-        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="50"></TextBox>
-        <Button Grid.Column="1" Grid.Row="5">Log in</Button>
-
+    <Grid>
+        
     </Grid>
 </Page>

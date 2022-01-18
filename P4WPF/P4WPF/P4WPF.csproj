@@ -85,10 +85,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MedewerkerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managment.xaml.cs">
       <DependentUpon>Managment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedewerkerMenu.xaml.cs">
+      <DependentUpon>MedewerkerMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

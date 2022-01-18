@@ -12,25 +12,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+
 
 namespace P4WPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MedewerkerMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MedewerkerMenu : Page
     {
-        public MainWindow()
+        public MedewerkerMenu()
         {
             InitializeComponent();
-            mainFrame.Content = new MedewerkerMenu();
-           
+        }
+        private void btOrder_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
-        private void btLogin_Click(object sender, RoutedEventArgs e)
+        private void btStatus_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new MedewerkerMenu();
-            
+
+        }
+
+        private void btIngredients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btManagment_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
