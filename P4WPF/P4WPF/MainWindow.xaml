@@ -28,6 +28,6 @@
         <TextBlock Text="password:" Grid.Row="3" Grid.Column="2" Height="40" VerticalAlignment="Top" FontSize="25"/>
         <TextBox Grid.Row="3" Grid.Column="2" Height="50"></TextBox>
             <Button Grid.Column="2" Grid.Row="5" x:Name="btLogin" Click="btLogin_Click">Log in</Button>
-        <Frame Grid.RowSpan ="7" Grid.ColumnSpan="5" x:Name="mainFrame" NavigationUIVisibility="Hidden"  />
+        <Frame Grid.RowSpan ="7" Grid.ColumnSpan="5" x:Name="mainFrame" Visibility="Hidden"  />
         </Grid>
 </Window>

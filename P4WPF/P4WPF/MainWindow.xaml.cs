@@ -30,7 +30,7 @@ namespace P4WPF
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Content = new MedewerkerMenu();
-            
+            mainFrame.Visibility = Visibility.Visible;
         }
     }
 }
