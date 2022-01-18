@@ -41,9 +41,9 @@ namespace P4WPF
 
         }
 
-        private void btManagment_Click(object sender, RoutedEventArgs e)
+        private void btLogout_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Visibility = Visibility.Hidden;
         }
     }
 }
