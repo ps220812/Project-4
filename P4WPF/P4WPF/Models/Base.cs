@@ -12,7 +12,6 @@ namespace P4WPF.Models
     {
         MySqlConnection _connection = new MySqlConnection("Server=localhost;Database=project4;Uid=root;Pwd=;");
 
-
         public bool ReadRole( Users users)
         {
             try
@@ -20,18 +19,20 @@ namespace P4WPF.Models
                 if (_connection.State == ConnectionState.Closed)
                     _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
-                sql.CommandText = @" SELECT COUNT(1) FROM users WHERE Name=@name AND Password=@password";
-                sql.Parameters.AddWithValue("@name", users.Name);
-                sql.Parameters.AddWithValue("@password", users.Password);
-                long count = Convert.ToInt32(sql.ExecuteScalar());
-                if (count == 1)
+                sql.CommandText = @" SELECT * FROM users WHERE Name=@name";
+
+    
+                MySqlDataReader reader = sql.ExecuteReader();
+                while (reader.Read())
                 {
-                    return true;
+                    if (BCrypt.Net.BCrypt.Verify( users.Password, (string)reader["password"]))
+                    {
+                        return true;
+                    }
+
                 }
-                else
-                {
-                    return false;
-                }
+                
+                
             }
             catch (Exception ex)
             {
@@ -42,42 +43,36 @@ namespace P4WPF.Models
             {
                 _connection.Close();
             }
+            return false;
         }
-        //            List<Klanten> result = new List<Klanten>();
-        //    try
-        //    {
-        //        _conn.Open();
-        //        SqlCommand sql = _conn.CreateCommand();
-        //        sql.CommandText = "SELECT *  FROM dbo.tblGuest";
-        //        SqlDataReader reader = sql.ExecuteReader();
-        //        DataTable table = new DataTable();
-        //        table.Load(reader);
-        //        foreach (DataRow row in table.Rows)
-        //        {
-        //            Klanten klant = new Klanten();
-        //            klant.Codeg = (int)row["codeG"];
-        //            klant.voornaam = (string)row["Voornaam"];
-        //            klant.achternaam = (string)row["Achternaam"];
-        //            result.Add(klant);
-        //        }
+        public bool VerifyUser(Users users)
+        {
+            if (_connection.State == ConnectionState.Closed)
+                _connection.Open();
+            MySqlCommand sql = _connection.CreateCommand();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@admin_id", adminId);
+            cmd.Parameters.AddWithValue("@password", password);
 
-        //    }
-        //    catch (Exception e)
-        //    {
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (read.Read())
+            {
+                if (Convert.ToBoolean(read["id"]) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
 
-        //        Console.Write(e.Message);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        if (_conn.State == ConnectionState.Open)
-        //        {
-        //            _conn.Close();
-        //        }
-        //    }
-
-        //    return result;
-        //}
+            }
+        }
 
 
     }

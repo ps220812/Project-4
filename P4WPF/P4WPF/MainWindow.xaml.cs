@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using P4WPF.Models;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace P4WPF
 {
@@ -37,19 +39,31 @@ namespace P4WPF
         }
 
         Base _db = new Base();
+
         public MainWindow()
         {
             InitializeComponent();
             mainFrame.Content = new MedewerkerMenu();
             DataContext = this;
+            
+
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-           
-            _db.ReadRole(Userss);
-            mainFrame.Content = new MedewerkerMenu();
-            mainFrame.Visibility = Visibility.Visible;
+
+           if (_db.VerifyUser = true)
+            {
+                MessageBox.Show("Voer een medewerker in.");
+            }
+            else
+            {
+                _db.ReadRole(Userss);
+                mainFrame.Content = new MedewerkerMenu();
+                mainFrame.Visibility = Visibility.Visible;
+            }
+
         }
+      
     }
 }
