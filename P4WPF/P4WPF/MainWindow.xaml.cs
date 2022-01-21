@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
+using P4WPF.Models;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace P4WPF
 {
@@ -20,17 +25,45 @@ namespace P4WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        private Users userss = new Users();
+
+        public Users Userss
+        {
+            get { return userss; }
+            set { userss = value; OnPropertyChanged(); }
+        }
+
+        Base _db = new Base();
+
         public MainWindow()
         {
             InitializeComponent();
             mainFrame.Content = new MedewerkerMenu();
-           
+            DataContext = this;
+            
+
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new MedewerkerMenu();
-            mainFrame.Visibility = Visibility.Visible;
+            Users login = _db.ReadRole(Userss);
+            if (login == null)
+            {
+                MessageBox.Show("Voer een medewerker in.");
+            }
+            else
+            {
+                //_db.ReadRole(Userss);
+                mainFrame.Content = new MedewerkerMenu();
+                mainFrame.Visibility = Visibility.Visible;
+            }
+
         }
+      
     }
 }

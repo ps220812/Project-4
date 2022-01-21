@@ -20,7 +20,6 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.Gen
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.CoreCompileInputs.cache
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.exe
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.pdb
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\bin\Debug\P4WPF.exe.config
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\bin\Debug\P4WPF.exe
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\bin\Debug\P4WPF.pdb
@@ -56,5 +55,12 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\K4os.Compression
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\MySql.Data.xml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.exe.config
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.CopyComplete
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Buffers.xml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Memory.xml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
