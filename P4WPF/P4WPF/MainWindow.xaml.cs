@@ -51,14 +51,14 @@ namespace P4WPF
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-
-           if (_db.VerifyUser = true)
+            Users login = _db.ReadRole(Userss);
+            if (login == null)
             {
                 MessageBox.Show("Voer een medewerker in.");
             }
             else
             {
-                _db.ReadRole(Userss);
+                //_db.ReadRole(Userss);
                 mainFrame.Content = new MedewerkerMenu();
                 mainFrame.Visibility = Visibility.Visible;
             }

@@ -12,22 +12,34 @@ namespace P4WPF.Models
     {
         MySqlConnection _connection = new MySqlConnection("Server=localhost;Database=project4;Uid=root;Pwd=;");
 
-        public bool ReadRole( Users users)
+        public Users ReadRole( Users users)
         {
             try
             {
                 if (_connection.State == ConnectionState.Closed)
                     _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
-                sql.CommandText = @" SELECT * FROM users WHERE Name=@name";
-
+                sql.CommandText = @" 
+                        SELECT u.id, u.name, u.password, r.id AS 'role_id' , r.name AS 'role_name' 
+                        FROM users u
+                        INNER JOIN user_roles ur ON ur.user_id = u.id
+                        INNER JOIN roles r ON ur.role_id = r.id
+                         WHERE u.Name=@name";
+                sql.Parameters.AddWithValue("@name", users.Name);
     
                 MySqlDataReader reader = sql.ExecuteReader();
                 while (reader.Read())
                 {
                     if (BCrypt.Net.BCrypt.Verify( users.Password, (string)reader["password"]))
                     {
-                        return true;
+                        Users login = new Users();
+                        login.Name = (string)reader["name"];
+                        login.Password = (string)reader["password"];
+                        login.ID = (ulong)reader["id"];
+                        login.Role_ID = (ulong)reader["role_id"]; 
+                        login.Role_Name = (string)reader["role_name"];
+                        return login;
+
                     }
 
                 }
@@ -37,44 +49,16 @@ namespace P4WPF.Models
             catch (Exception ex)
             {
                 // iets doen want fout
-                return false;
+                return null;
             }
             finally
             {
                 _connection.Close();
             }
-            return false;
+            return null;
         }
-        public bool VerifyUser(Users users)
-        {
-            if (_connection.State == ConnectionState.Closed)
-                _connection.Open();
-            MySqlCommand sql = _connection.CreateCommand();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = query;
-            cmd.Parameters.AddWithValue("@admin_id", adminId);
-            cmd.Parameters.AddWithValue("@password", password);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (read.Read())
-            {
-                if (Convert.ToBoolean(read["id"]) == true)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-
-            }
-        }
-
 
     }
-    
 }
+
+
