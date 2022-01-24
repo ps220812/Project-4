@@ -34,11 +34,8 @@
             Show the orders.
         </Button>
             <Button Height="50px" Margin="0,10,0,0" x:Name="btStatus" Click="btStatus_Click">
-            Change order status
-        </Button>
-            <Button Height="50px" Margin="0,10,0,0" x:Name="btIngredients" Click="btIngredients_Click">
-            Add ingredients.
-        </Button>
+                Change order status
+            </Button>
             <Button Height="50px" Margin="0,10,0,0" x:Name="btLogout" Click="btLogout_Click">
            log off
         </Button>
