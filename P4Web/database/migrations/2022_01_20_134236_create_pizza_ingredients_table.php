@@ -15,8 +15,8 @@ class CreatePizzaIngredientsTable extends Migration
     {
         Schema::create('pizza_ingredients', function (Blueprint $table) {
             $table->id();
-            $table->integer('ingredient_id');
-            $table->integer('pizza_id');
+            $table->foreignId('ingredient_id')->constrained('ingredients');
+            $table->foreignId('pizza_id')->constrained('pizzas');
             $table->timestamps();
         });
     }
