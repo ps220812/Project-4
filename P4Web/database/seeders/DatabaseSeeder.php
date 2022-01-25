@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             OrderStatusSeeder::class,
             pizzaSeeder::class,
             ingredientSeeder::class,
+            OrderSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }
