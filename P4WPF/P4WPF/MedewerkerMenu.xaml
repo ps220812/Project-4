@@ -26,19 +26,35 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3">
+        <ListBox x:Name="lstOrders" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Margin="1,0,9,0">
 
         </ListBox>
-        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="4">
-        <Button Height="50px" x:Name="btOrder" Click="btOrder_Click">
-            Show the orders.
-        </Button>
+        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="2">
+            <Button Height="50px" x:Name="btOrder" Click="btOrder_Click">
+                Show the orders.
+            </Button>
             <Button Height="50px" Margin="0,10,0,0" x:Name="btStatus" Click="btStatus_Click">
                 Change order status
             </Button>
             <Button Height="50px" Margin="0,10,0,0" x:Name="btLogout" Click="btLogout_Click">
-           log off
-        </Button>
+                log off
+            </Button>
         </StackPanel>
+
+        <StackPanel x:Name="STstatus" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Visibility="Hidden" >
+            <Button x:Name="btMade" Height="40px" Click="btMade_Click" >
+                
+            </Button> 
+            <Button x:Name="btOven"  Height="40px" Margin="0,5,0,0" Click="btOven_Click" >
+
+            </Button>
+            <Button x:Name="btDeliverys"  Height="40px" Margin="0,5,0,0" Click="btDeliverys_Click">
+
+            </Button>
+            <Button x:Name="btClose"  Height="40px" Margin="0,5,0,0" Click="btClose_Click">
+
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>

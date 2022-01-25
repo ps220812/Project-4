@@ -23,7 +23,7 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3">
+        <ListBox x:Name="lbManagment" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="3">
 
         </ListBox>
         <StackPanel Grid.Column="4" Grid.Row="1" Grid.RowSpan="4">
@@ -36,6 +36,7 @@
             <Button Height="50px" Margin="0,10,0,0" x:Name="btLogout" Click="btLogout_Click">
                 log off
             </Button>
+
 
         </StackPanel>
     </Grid>

@@ -42,6 +42,7 @@ namespace P4WPF.Models
 
                     }
 
+
                 }
                 
                 
@@ -57,42 +58,44 @@ namespace P4WPF.Models
             }
             return null;
         }
-        //public List<> GetAllOrders()
-        //{
-        //    List<> result = new List<>();
-        //    try
-        //    {
-        //        _connection.Open();
-        //        MySqlCommand sql = _connection.CreateCommand();
-        //        sql.CommandText = "SELECT *  FROM dbo.tblGuest";
-        //        MySqlDataReader reader = sql.ExecuteReader();
-        //        DataTable table = new DataTable();
-        //        table.Load(reader);
-        //        foreach (DataRow row in table.Rows)
-        //        {
-        //             = new ();
-        //             = (int)row[""];
-        //             = (string)row[""];
-        //             = (string)row[""];
-        //            result.Add();
-        //        }
+        public List<Orders> GetAllOrders()
+        {
+            List<Orders> result = new List<Orders>();
+            try
+            {
+                _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText = "SELECT *  FROM orders";
+                MySqlDataReader reader = sql.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                foreach (DataRow row in table.Rows)
+                {
+                    Orders orders = new Orders();
+                    orders.Status_ID = (int)row["status_id"];
+                    orders.Pizza_ID = (int)row["pizza_id"];
+                    orders.User_ID = (int)row["user_id"];
+                    result.Add(orders);
+                }
 
-        //    }
-        //    catch (Exception e)
-        //    {
+            }
+            catch (Exception e)
+            {
 
-        //        Console.Write(e.Message);
-        //        return null;
-        //    finally
-        //    {
-        //        if (_connection.State == ConnectionState.Open)
-        //        {
-        //            _connection.Close();
-        //        }
-        //    }
+                Console.Write(e.Message);
+                return null;
+            }
 
-        //    return result;
-        //}
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+
+            return result;
+        }
         //public bool SaveKlant()
         //{
         //    bool result = true;

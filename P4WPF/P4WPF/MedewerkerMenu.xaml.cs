@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using P4WPF.Models;
+using System.Runtime.CompilerServices;
 
 
 namespace P4WPF
@@ -22,6 +26,23 @@ namespace P4WPF
     /// </summary>
     public partial class MedewerkerMenu : Page
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        private ObservableCollection<Orders> Oborders = new ObservableCollection<Orders>();
+   
+        //public List<Klanten> lstKlanten = new List<Klanten>();
+
+
+        public ObservableCollection<Orders> Orders
+        {
+            get { return Oborders; }
+            set { Oborders = value; }
+        }
+
+        Base _db = new Base();
         public MedewerkerMenu()
         {
             InitializeComponent();
@@ -29,10 +50,18 @@ namespace P4WPF
         private void btOrder_Click(object sender, RoutedEventArgs e)
         {
 
+                foreach (Orders O in _db.GetAllOrders())
+                {
+                    if (O == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+                    Orders.Add(O);
+                    OnPropertyChanged("lstOrders");
+                }
+            
         }
 
         private void btStatus_Click(object sender, RoutedEventArgs e)
         {
+            STstatus.Visibility = Visibility.Visible;
 
         }
 
@@ -44,6 +73,26 @@ namespace P4WPF
         private void btLogout_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+        }
+
+        private void btMade_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btOven_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btDeliverys_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btClose_Click(object sender, RoutedEventArgs e)
+        {
+            STstatus.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -15,8 +15,6 @@ using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using P4WPF.Models;
-using MySql.Data.MySqlClient;
-using System.Data;
 
 namespace P4WPF
 {
