@@ -65,17 +65,25 @@ namespace P4WPF.Models
             {
                 _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
-                sql.CommandText = "SELECT *  FROM orders";
+                sql.CommandText =
+                    @"SELECT  o.status_id, o.pizza_id,  o.user_id, p.id AS ' pizza_id', p.pizza_name, os.id AS 'status_id', os.status, u.id AS 'user_id', u.name
+                    FROM orders o
+                    INNER JOIN pizzas p ON p.id = o.pizza_id
+                    INNER JOIN order_status os ON os.id = o.status_id
+                    INNER JOIN users u ON u.id = o.user_id";
                 MySqlDataReader reader = sql.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(reader);
                 foreach (DataRow row in table.Rows)
                 {
-                    Orders orders = new Orders();
-                    orders.Status_ID = (int)row["status_id"];
-                    orders.Pizza_ID = (int)row["pizza_id"];
-                    orders.User_ID = (int)row["user_id"];
-                    result.Add(orders);
+                    Orders Order = new Orders();
+                    Order.Status_ID = (int)row["status_id"];
+                    Order.Pizza_ID = (int)row["pizza_id"];
+                    Order.User_ID = (int)row["user_id"];
+                    Order.Status = (string)row["status"]; 
+                    Order.Pizza_Name = (string)row["pizza_name"];
+                    Order.Name = (string)row["name"];
+                    result.Add(Order);
                 }
 
             }
