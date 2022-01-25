@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P4WPF.Models
 {
-    class Orders
+    public class Orders
     {
         private int status_id;
 

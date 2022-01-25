@@ -1,9 +1,0 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/P4WPF/P4WPF/obj/Debug/MedewerkerMenu.baml
-/P4WPF/P4WPF/obj/Debug/Managment.baml
-/P4WPF/P4WPF/obj/Debug/MainWindow.baml
-/P4WPF/P4WPF/obj/Debug/Inlog.baml
-/P4WPF/P4WPF/obj/Debug/Ingredients.baml

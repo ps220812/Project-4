@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
+using P4WPF.Models;
 
 namespace P4WPF
 {
@@ -19,9 +22,19 @@ namespace P4WPF
     /// </summary>
     public partial class Managment : Window
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
         public Managment()
         {
             InitializeComponent();
+        }
+
+        private void btLogout_Click(object sender, RoutedEventArgs e)
+        { 
+            this.Visibility = Visibility.Hidden;
         }
     }
 }
