@@ -77,9 +77,9 @@ namespace P4WPF.Models
                 foreach (DataRow row in table.Rows)
                 {
                     Orders Order = new Orders();
-                    Order.Status_ID = (int)row["status_id"];
-                    Order.Pizza_ID = (int)row["pizza_id"];
-                    Order.User_ID = (int)row["user_id"];
+                    Order.Status_ID = (ulong)row["status_id"];
+                    Order.Pizza_ID = (ulong)row["pizza_id"];
+                    Order.User_ID = (ulong)row["user_id"];
                     Order.Status = (string)row["status"]; 
                     Order.Pizza_Name = (string)row["pizza_name"];
                     Order.Name = (string)row["name"];

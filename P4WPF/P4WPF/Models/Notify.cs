@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
-using System.ComponentModel;d
+using System.ComponentModel;
 namespace P4WPF.Models
 {
     public abstract class Notify

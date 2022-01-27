@@ -8,23 +8,23 @@ namespace P4WPF.Models
 {
     public class Orders
     {
-        private int status_id;
+        private ulong status_id;
 
-        public int Status_ID
+        public ulong Status_ID
         {
             get { return status_id; }
             set { status_id = value; }
         }
-        private int pizza_id;
+        private ulong pizza_id;
 
-        public int Pizza_ID
+        public ulong Pizza_ID
         {
             get { return pizza_id; }
             set { pizza_id = value; }
         }
-        private int user_id;
+        private ulong user_id;
 
-        public int User_ID
+        public ulong User_ID
         {
             get { return user_id; }
             set { user_id = value; }
