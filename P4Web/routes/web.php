@@ -5,8 +5,10 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\pizzaController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+// Route::get('/', function () {
+//     return view('homepage');
+// });
+Route::get('/',[pizzaController::class,'index']); 
+    Route::resource('pizzas', pizzaController::class);
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {

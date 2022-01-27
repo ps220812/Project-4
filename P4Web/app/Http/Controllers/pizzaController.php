@@ -10,7 +10,7 @@ class pizzaController extends Controller
 {
     public function index()
     {
-        $pizzas = DB::table('pizzas')->paginate(4);
+        $pizzas = DB::table('pizzas')->get();
 
         return view('homepage', ['pizzas'=>$pizzas]);
     }
