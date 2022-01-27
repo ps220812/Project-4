@@ -49,6 +49,25 @@ namespace P4WPF
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
+                //bool Correct = BCrypt.Net.BCrypt.Verify(TxtPassword.Password, password);
+                //if (Correct == true)
+                //{
+                //    switch (Userss[i].RoleName)
+                //    {
+                //        case "management":
+                //            MessageBox.Show("manager login");
+                //            break;
+                //        case "admin":
+                //            MessageBox.Show("gelukt");
+                //            break;
+                //        default:
+                //            break;
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("error");
+                //}
             Users login = _db.ReadRole(Userss);
             if (login == null)
             {
