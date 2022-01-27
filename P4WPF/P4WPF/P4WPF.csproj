@@ -118,6 +118,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\Base.cs" />
+    <Compile Include="Models\Notify.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
