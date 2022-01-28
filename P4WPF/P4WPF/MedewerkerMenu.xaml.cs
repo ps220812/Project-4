@@ -50,9 +50,16 @@ namespace P4WPF
         }
 
         Base _db = new Base();
+        private Orders selectedOrder;
+        public Orders SelectedOrder
+        {
+            get { return selectedOrder; }
+            set { selectedOrder = value; OnPropertyChanged(); OnPropertyChanged("lst"); }
+        }
         public MedewerkerMenu()
         {
             InitializeComponent();
+            DataContext = this;
         }
         private void btOrder_Click(object sender, RoutedEventArgs e)
         {

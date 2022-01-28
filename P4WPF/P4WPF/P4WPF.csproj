@@ -116,6 +116,7 @@
       <DependentUpon>MedewerkerMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\ExtendedOrder.cs" />
     <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\Base.cs" />
     <Compile Include="Models\Notify.cs" />
