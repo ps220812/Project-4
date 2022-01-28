@@ -99,7 +99,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Managment.xaml">
+    <Page Include="Management.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,8 +109,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managment.xaml.cs">
-      <DependentUpon>Managment.xaml</DependentUpon>
+    <Compile Include="Management.xaml.cs">
+      <DependentUpon>Management.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedewerkerMenu.xaml.cs">
       <DependentUpon>MedewerkerMenu.xaml</DependentUpon>

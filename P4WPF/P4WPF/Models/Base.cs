@@ -20,33 +20,38 @@ namespace P4WPF.Models
                     _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText = @" 
-                        SELECT u.id, u.name, u.password, r.id AS 'role_id' , r.name AS 'role_name' 
+                        SELECT u.id, u.email, u.password, r.id AS 'role_id' , r.name AS 'role_name' 
                         FROM users u
                         INNER JOIN user_roles ur ON ur.user_id = u.id
                         INNER JOIN roles r ON ur.role_id = r.id
-                         WHERE u.Name=@name";
-                sql.Parameters.AddWithValue("@name", users.Name);
-    
+                         WHERE u.Email=@email";
+                sql.Parameters.AddWithValue("@email", users.Email);
+
                 MySqlDataReader reader = sql.ExecuteReader();
                 while (reader.Read())
                 {
-                    if (BCrypt.Net.BCrypt.Verify( users.Password, (string)reader["password"]))
-                    {
-                        Users login = new Users();
-                        login.Name = (string)reader["name"];
-                        login.Password = (string)reader["password"];
-                        login.ID = (ulong)reader["id"];
-                        login.Role_ID = (ulong)reader["role_id"]; 
-                        login.Role_Name = (string)reader["role_name"];
-                        return login;
 
+                        if (BCrypt.Net.BCrypt.Verify(users.Password, (string)reader["password"]))
+                        {
+                            Users login = new Users();
+                            login.Email = (string)reader["email"];
+                            login.Password = (string)reader["password"];
+                            login.ID = (ulong)reader["id"];
+                            login.Role_ID = (ulong)reader["role_id"];
+                            login.Role_Name = (string)reader["role_name"];
+                        if (login.Role_ID >= 2) 
+                        {
+                            return login;
+                        }
+                            
+
+                        }
                     }
 
-
-                }
-                
                 
             }
+
+
             catch (Exception ex)
             {
                 // iets doen want fout
@@ -58,6 +63,58 @@ namespace P4WPF.Models
             }
             return null;
         }
+        public Users ReadForM(Users users)
+        {
+            try
+            {
+                if (_connection.State == ConnectionState.Closed)
+                    _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText = @" 
+                        SELECT u.id, u.email, u.password, r.id AS 'role_id' , r.name AS 'role_name' 
+                        FROM users u
+                        INNER JOIN user_roles ur ON ur.user_id = u.id
+                        INNER JOIN roles r ON ur.role_id = r.id
+                         WHERE u.Email=@email";
+                sql.Parameters.AddWithValue("@email", users.Email);
+
+                MySqlDataReader reader = sql.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (BCrypt.Net.BCrypt.Verify(users.Password, (string)reader["password"]))
+                    {
+                        Users login = new Users();
+                        login.Email = (string)reader["email"];
+                        login.Password = (string)reader["password"];
+                        login.ID = (ulong)reader["id"];
+                        login.Role_ID = (ulong)reader["role_id"];
+                        login.Role_Name = (string)reader["role_name"];
+                        if (login.Role_ID >= 5)
+                        {
+                            return login;
+                        }
+                        
+
+                    }
+                }
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                // iets doen want fout
+                return null;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return null;
+        }
+
         public List<Orders> GetAllOrders()
         {
             List<Orders> result = new List<Orders>();
@@ -104,6 +161,7 @@ namespace P4WPF.Models
 
             return result;
         }
+
         //public bool SaveKlant()
         //{
         //    bool result = true;

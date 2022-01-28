@@ -41,6 +41,13 @@ namespace P4WPF
             get { return Oborders; }
             set { Oborders = value; }
         }
+        private Users userss = new Users();
+
+        public Users Userss
+        {
+            get { return userss; }
+            set { userss = value; OnPropertyChanged(); }
+        }
 
         Base _db = new Base();
         public MedewerkerMenu()
@@ -53,8 +60,12 @@ namespace P4WPF
                 foreach (Orders O in _db.GetAllOrders())
                 {
                     if (O == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+                else
+                {
                     Orders.Add(O);
                     OnPropertyChanged("lstOrders");
+                }
+                
                 }
             
         }

@@ -15,12 +15,12 @@ namespace P4WPF.Models
             get { return id; }
             set { id = value; }
         }
-        private string name;
+        private string email;
 
-        public string Name
+        public string Email
         {
-            get { return name; }
-            set{ name = value; }
+            get { return email; }
+            set{ email = value; }
         }
         private string password;
 

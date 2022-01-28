@@ -69,18 +69,47 @@ namespace P4WPF
                 //    MessageBox.Show("error");
                 //}
             Users login = _db.ReadRole(Userss);
-            if (login == null)
+            Users loginM = _db.ReadForM(Userss);
+            if (loginM != null)
             {
-                MessageBox.Show("Voer een medewerker in.");
+                switch (loginM)
+                {
+                    case null:
+                        MessageBox.Show("Voer een medewerker in.");
+                        break;
+
+                    default:
+                        mainFrame.Content = new Management();
+                        mainFrame.Visibility = Visibility.Visible;
+                        break;
+                }
             }
             else
             {
-                //_db.ReadRole(Userss);
-                mainFrame.Content = new MedewerkerMenu();
-                mainFrame.Visibility = Visibility.Visible;
+                switch (login)
+                {
+                    case null:
+                        MessageBox.Show("Voer een medewerker in.");
+                        break;
+
+                    default:
+                        mainFrame.Content = new MedewerkerMenu();
+                        mainFrame.Visibility = Visibility.Visible;
+                        break;
+                }
             }
 
         }
-      
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new MedewerkerMenu();
+            mainFrame.Visibility = Visibility.Visible;
+        }
     }
 }
