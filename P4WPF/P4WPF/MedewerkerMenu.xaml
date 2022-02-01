@@ -34,12 +34,13 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Background="blue" Margin="1,10,1,0">
                         <StackPanel  Orientation="Vertical" Background="Blue" Margin="0,5,100,5">
-                            <TextBlock Background="Blue"  Text="Name :" Margin="15,5, 0, 0" />
+                            <TextBlock Background="Blue"  Text="ID :" Margin="15,5, 0, 0" />
+                            
                             <TextBlock Background="Blue"  Text="Pizza :" Margin="15, 5, 0, 0" />
                             <TextBlock Background="Blue"  Text="Status : :" Margin="15, 5, 0, 0" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0">
-                            <TextBlock Background="blue" Text="{Binding Name}" Margin="0,5,0,0"/>
+                            <TextBlock Background="blue" Text="{Binding ID}" Margin="0,5,0,0"/>
                             <TextBlock Background="blue" Text="{Binding Pizza_Name}" Margin="0,5,0,0"/>
                             <TextBlock Background="blue" Text="{Binding Status}" Margin="0,5,0,0"/>
                         </StackPanel>
@@ -62,7 +63,7 @@
 
         </StackPanel>
 
-        <StackPanel x:Name="STstatus" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Visibility="Hidden" >
+        <!--<StackPanel x:Name="STstatus" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Visibility="Hidden" >
             <Button x:Name="btMade" Height="40px" Click="btMade_Click" >
                 finished
             </Button> 
@@ -75,7 +76,7 @@
             <Button x:Name="btClose"  Height="40px" Margin="0,5,0,0" Click="btClose_Click">
                 close menu
             </Button>
-        </StackPanel>
+        </StackPanel>-->
 
     </Grid>
 </Page>

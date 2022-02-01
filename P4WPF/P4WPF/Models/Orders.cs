@@ -8,12 +8,19 @@ namespace P4WPF.Models
 {
     public class Orders : ExtendedOrder
     {
+        private ulong id;
+
+        public ulong ID
+        {
+            get { return id; }
+            set { id = value; OnPropertyChanged(); }
+        }
         private ulong status_id;
 
         public ulong Status_ID
         {
             get { return status_id; }
-            set { status_id = value;  }
+            set { status_id = value; OnPropertyChanged();  }
         }
         private ulong pizza_id;
 

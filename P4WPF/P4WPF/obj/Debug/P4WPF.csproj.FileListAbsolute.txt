@@ -61,6 +61,6 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Buffers.x
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Memory.xml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.baml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache

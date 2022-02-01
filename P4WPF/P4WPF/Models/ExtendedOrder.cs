@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P4WPF.Models
 {
-    public class ExtendedOrder
+    public class ExtendedOrder: Notify
     {
         private string name;
 
@@ -29,11 +29,8 @@ namespace P4WPF.Models
             get { return status; }
             set { status = value; }
         }
-        public string Full_Order
-        {
-            get { return Name + " " + Pizza_Name + " " + Status; }
-            set { }
-        }
+
+
     }
 
 }

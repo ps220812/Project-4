@@ -123,23 +123,21 @@ namespace P4WPF.Models
                 _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText =
-                    @"SELECT  o.status_id, o.pizza_id,  o.user_id, p.id AS ' pizza_id', p.pizza_name, os.id AS 'status_id', os.status, u.id AS 'user_id', u.name
+                    @"SELECT o.id, o.status_id, o.pizza_id,  o.user_id, p.id AS ' pizza_id', p.pizza_name, os.id AS 'status_id', os.status
                     FROM orders o
                     INNER JOIN pizzas p ON p.id = o.pizza_id
-                    INNER JOIN order_status os ON os.id = o.status_id
-                    INNER JOIN users u ON u.id = o.user_id";
+                    INNER JOIN order_status os ON os.id = o.status_id";
                 MySqlDataReader reader = sql.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(reader);
                 foreach (DataRow row in table.Rows)
                 {
                     Orders Order = new Orders();
+                    Order.ID = (ulong)row["id"];
                     Order.Status_ID = (ulong)row["status_id"];
                     Order.Pizza_ID = (ulong)row["pizza_id"];
-                    Order.User_ID = (ulong)row["user_id"];
                     Order.Status = (string)row["status"]; 
                     Order.Pizza_Name = (string)row["pizza_name"];
-                    Order.Name = (string)row["name"];
                     result.Add(Order);
                 }
 
@@ -161,58 +159,51 @@ namespace P4WPF.Models
 
             return result;
         }
-
-        //public bool SaveKlant()
-        //{
-        //    bool result = true;
-        //    try
-        //    {
-        //        if (_connection.State == ConnectionState.Closed)
-        //        {
-        //            _connection.Open();
-        //        }
-        //        MySqlCommand sql = _connection.CreateCommand();
-        //        sql.CommandText =
-        //            @"INSERT INTO 
-        //                ()
-        //                VALUES
-        //                ();";
+        public bool UpdateOrderStatus(Orders orders)
+        {
+            bool result = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText =
+                    @"UPDATE `orders` SET `status_id` = @status_id  WHERE `orders`.`id` = @id";
 
 
-        //        sql.Parameters.AddWithValue("", );
-        //        sql.Parameters.AddWithValue("", );
-        //        sql.ExecuteNonQuery();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine("******");
-        //        Console.WriteLine(e.Message);
-        //        result = false;
-        //    }
+                command.Parameters.AddWithValue("@id", orders.ID);
+                
+                switch (orders.Status_ID)
+                {
+                    case 1:
+                        command.Parameters.AddWithValue("@status_id", "2");
+                        result = command.ExecuteNonQuery() >= 1;
+                        break;
+                    case 2:
+                        command.Parameters.AddWithValue("@status_id", "3");
+                        result = command.ExecuteNonQuery() >= 1;
+                        break;
+                    default:
+                        
+                        break;
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
 
-        //    finally
-        //    {
-        //        if (_connection.State == ConnectionState.Open)
-        //        {
-        //            _connection.Close();
-        //        }
-        //    }
-        //    return result;
-        //}
-        //public void DeleteFavCountry()
-        //{
-        //    _connection.Open();
-        //    MySqlCommand cmd = _connection.CreateCommand();
-        //    if ( > 0)
-        //    {
-        //        cmd.CommandText = "DELETE FROM  Where  = ";
-        //    }
-
-        //    cmd.Parameters.AddWithValue("", );
-        //    cmd.ExecuteNonQuery();
-        //    _connection.Close();
-        //}
-
+            return result;
+        }
     }
 }
 

@@ -54,7 +54,7 @@ namespace P4WPF
         public Orders SelectedOrder
         {
             get { return selectedOrder; }
-            set { selectedOrder = value; OnPropertyChanged(); OnPropertyChanged("lst"); }
+            set { selectedOrder = value; OnPropertyChanged(); OnPropertyChanged("lstOrders"); }
         }
         public MedewerkerMenu()
         {
@@ -79,7 +79,21 @@ namespace P4WPF
 
         private void btStatus_Click(object sender, RoutedEventArgs e)
         {
-            STstatus.Visibility = Visibility.Visible;
+            lstOrders.Items.Clear();
+            Oborders = new ObservableCollection<Orders>();
+            lstOrders = null;
+            if (selectedOrder == null)
+            {
+                MessageBox.Show("You have not chosen an order. ");
+            }
+            else
+            {
+                _db.UpdateOrderStatus(SelectedOrder);
+
+            }
+
+
+            //STstatus.Visibility = Visibility.Visible;
 
         }
 
@@ -93,24 +107,24 @@ namespace P4WPF
             this.Visibility = Visibility.Hidden;
         }
 
-        private void btMade_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btMade_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btOven_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btOven_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btDeliverys_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btDeliverys_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btClose_Click(object sender, RoutedEventArgs e)
-        {
-            STstatus.Visibility = Visibility.Hidden;
-        }
+        //private void btClose_Click(object sender, RoutedEventArgs e)
+        //{
+        //    STstatus.Visibility = Visibility.Hidden;
+        //}
     }
 }
