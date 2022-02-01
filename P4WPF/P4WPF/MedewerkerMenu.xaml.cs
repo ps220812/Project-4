@@ -64,30 +64,40 @@ namespace P4WPF
         private void btOrder_Click(object sender, RoutedEventArgs e)
         {
 
-                foreach (Orders O in _db.GetAllOrders())
+
+
+            foreach (Orders O in _db.GetAllOrders())
+            {
+                if (O == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+                else if (Orders != null)
                 {
-                    if (O == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+                   
+                    Oborders = new ObservableCollection<Orders>();
+                    Orders.Clear();
+
+                }
+                
+
                 else
                 {
                     Orders.Add(O);
                     OnPropertyChanged("lstOrders");
                 }
-                
-                }
+
+            }
             
         }
 
         private void btStatus_Click(object sender, RoutedEventArgs e)
         {
-            lstOrders.Items.Clear();
-            Oborders = new ObservableCollection<Orders>();
-            lstOrders = null;
+
             if (selectedOrder == null)
             {
                 MessageBox.Show("You have not chosen an order. ");
             }
             else
             {
+                
                 _db.UpdateOrderStatus(SelectedOrder);
 
             }
