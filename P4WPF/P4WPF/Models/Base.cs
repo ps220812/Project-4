@@ -90,7 +90,7 @@ namespace P4WPF.Models
                         login.ID = (ulong)reader["id"];
                         login.Role_ID = (ulong)reader["role_id"];
                         login.Role_Name = (string)reader["role_name"];
-                        if (login.Role_ID >= 5)
+                        if (login.Role_ID >= 5 )
                         {
                             return login;
                         }
@@ -204,7 +204,144 @@ namespace P4WPF.Models
 
             return result;
         }
+        public List<Ingredient> GetAllingredients()
+        {
+            List<Ingredient> result = new List<Ingredient>();
+            try
+            {
+                _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    @"SELECT i.id, i.ingredient 
+                    FROM ingredients i";
+                MySqlDataReader reader = sql.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                foreach (DataRow row in table.Rows)
+                {
+                    Ingredient unit = new Ingredient();
+                    unit.ID = (ulong)row["id"];
+                    unit.IngredientName = (string)row["ingredient"];
+                    result.Add(unit);
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                Console.Write(e.Message);
+                return null;
+            }
+
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+
+            return result;
+        }
+        public bool SaveIngredient(Ingredient ingredients)
+        {
+            bool result = true;
+            try
+            {
+                if (_connection.State == ConnectionState.Closed)
+                {
+                    _connection.Open();
+                }
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    @"INSERT INTO ingredients
+                        (ID, Ingredient)
+                        VALUES
+                        (@id, @ingredien);";
+
+
+                sql.Parameters.AddWithValue("@id", ingredients.ID);
+                sql.Parameters.AddWithValue("@ingredient", ingredients.IngredientName);
+                sql.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("***InsertIntoingredients***");
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        public void DeleteIngredients(Ingredient ingredients)
+        {
+            _connection.Open();
+            MySqlCommand cmd = _connection.CreateCommand();
+            if (ingredients.ID > 0)
+            {
+                cmd.CommandText = "DELETE FROM ingredients WHERE ID= @id";
+
+            }
+
+            cmd.Parameters.AddWithValue("@id", ingredients.ID);
+            cmd.ExecuteNonQuery();
+            _connection.Close();
+        }
+
+        //public bool UpdateUnits()
+        //{
+        //    bool result = false;
+        //    try
+        //    {
+        //        _connection.Open();
+        //        MySqlCommand command = _connection.CreateCommand();
+        //        command.CommandText =
+        //            @"UPDATE `orders` SET `status_id` = @status_id  WHERE `orders`.`id` = @id";
+
+
+        //        command.Parameters.AddWithValue("@id", orders.ID);
+
+        //        switch (orders.Status_ID)
+        //        {
+        //            case 1:
+        //                command.Parameters.AddWithValue("@status_id", "2");
+        //                result = command.ExecuteNonQuery() >= 1;
+        //                break;
+        //            case 2:
+        //                command.Parameters.AddWithValue("@status_id", "3");
+        //                result = command.ExecuteNonQuery() >= 1;
+        //                break;
+        //            default:
+
+        //                break;
+        //        }
+
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.Error.WriteLine(e.Message);
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        if (_connection.State == ConnectionState.Open)
+        //        {
+        //            _connection.Close();
+        //        }
+        //    }
+
+        //    return result;
+        //}
     }
 }
+
 
 

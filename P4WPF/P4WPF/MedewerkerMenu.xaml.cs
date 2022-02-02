@@ -66,25 +66,26 @@ namespace P4WPF
 
 
 
-            foreach (Orders O in _db.GetAllOrders())
+
+
+                List<Orders> lstOrders = _db.GetAllOrders();
+
+            if (lstOrders == null) {
+                MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+            }
+            else
             {
-                if (O == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
-                else if (Orders != null)
+                Orders.Clear();
+                foreach (Orders order in lstOrders)
                 {
-                   
-                    Oborders = new ObservableCollection<Orders>();
-                    Orders.Clear();
-
+                    Orders.Add(order);
                 }
-                
 
-                else
-                {
-                    Orders.Add(O);
-                    OnPropertyChanged("lstOrders");
-                }
 
             }
+
+
+            
             
         }
 

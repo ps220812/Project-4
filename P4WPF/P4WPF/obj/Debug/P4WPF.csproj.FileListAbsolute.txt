@@ -1,4 +1,3 @@
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Ingredients.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MainWindow.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MedewerkerMenu.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\App.g.cs
@@ -8,7 +7,6 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.exe.config
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.exe
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.pdb
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Inlog.g.cs
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Ingredients.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Inlog.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MainWindow.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MedewerkerMenu.baml
