@@ -62,3 +62,5 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.C
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientAdd.g.cs
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientEdit.g.cs

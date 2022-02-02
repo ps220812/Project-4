@@ -26,20 +26,20 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <Frame x:Name="Managmentframe" Grid.ColumnSpan="6" Grid.RowSpan="6" Visibility="Hidden"></Frame>
+       
         <ListView Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="4" 
                   ItemsSource="{Binding Orders}" 
                   SelectedItem="{Binding SelectedOrder}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Background="blue" Margin="1,10,1,0">
-                        <StackPanel  Orientation="Vertical" Background="Blue" Margin="0,5,100,5">
+                        <StackPanel  Orientation="Vertical" Background="Blue"  Width="40"    Margin="0,5,100,5">
                             <TextBlock Background="Blue"  Text="ID :" Margin="15,5, 0, 0" />
                             
                             <TextBlock Background="Blue"  Text="Pizza :" Margin="15, 5, 0, 0" />
                             <TextBlock Background="Blue"  Text="Status : :" Margin="15, 5, 0, 0" />
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0">
+                        <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0" Width="150">
                             <TextBlock Background="blue" Text="{Binding ID}" Margin="0,5,0,0"/>
                             <TextBlock Background="blue" Text="{Binding Pizza_Name}" Margin="0,5,0,0"/>
                             <TextBlock Background="blue" Text="{Binding Status}" Margin="0,5,0,0"/>
