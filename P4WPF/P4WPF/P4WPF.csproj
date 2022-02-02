@@ -73,10 +73,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Ingredients.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Inlog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,9 +85,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ingredients.xaml.cs">
-      <DependentUpon>Ingredients.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Inlog.xaml.cs">
       <DependentUpon>Inlog.xaml</DependentUpon>
     </Compile>
@@ -99,7 +92,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Managment.xaml">
+    <Page Include="Management.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,14 +102,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managment.xaml.cs">
-      <DependentUpon>Managment.xaml</DependentUpon>
+    <Compile Include="Management.xaml.cs">
+      <DependentUpon>Management.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedewerkerMenu.xaml.cs">
       <DependentUpon>MedewerkerMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Ingredients.cs" />
+    <Compile Include="Models\ExtendedOrder.cs" />
+    <Compile Include="Models\Ingredienten.cs" />
     <Compile Include="Models\Base.cs" />
     <Compile Include="Models\Notify.cs" />
     <Compile Include="Models\Orders.cs" />

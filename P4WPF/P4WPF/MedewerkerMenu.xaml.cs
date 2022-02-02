@@ -41,27 +41,70 @@ namespace P4WPF
             get { return Oborders; }
             set { Oborders = value; }
         }
+        private Users userss = new Users();
+
+        public Users Userss
+        {
+            get { return userss; }
+            set { userss = value; OnPropertyChanged(); }
+        }
 
         Base _db = new Base();
+        private Orders selectedOrder;
+        public Orders SelectedOrder
+        {
+            get { return selectedOrder; }
+            set { selectedOrder = value; OnPropertyChanged(); OnPropertyChanged("lstOrders"); }
+        }
         public MedewerkerMenu()
         {
             InitializeComponent();
+            DataContext = this;
         }
         private void btOrder_Click(object sender, RoutedEventArgs e)
         {
 
-                foreach (Orders O in _db.GetAllOrders())
+
+
+
+
+                List<Orders> lstOrders = _db.GetAllOrders();
+
+            if (lstOrders == null) {
+                MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+            }
+            else
+            {
+                Orders.Clear();
+                foreach (Orders order in lstOrders)
                 {
-                    if (O == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
-                    Orders.Add(O);
-                    OnPropertyChanged("lstOrders");
+                    Orders.Add(order);
                 }
+
+
+            }
+
+
+            
             
         }
 
         private void btStatus_Click(object sender, RoutedEventArgs e)
         {
-            STstatus.Visibility = Visibility.Visible;
+
+            if (selectedOrder == null)
+            {
+                MessageBox.Show("You have not chosen an order. ");
+            }
+            else
+            {
+                
+                _db.UpdateOrderStatus(SelectedOrder);
+
+            }
+
+
+            //STstatus.Visibility = Visibility.Visible;
 
         }
 
@@ -75,24 +118,24 @@ namespace P4WPF
             this.Visibility = Visibility.Hidden;
         }
 
-        private void btMade_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btMade_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btOven_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btOven_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btDeliverys_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btDeliverys_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btClose_Click(object sender, RoutedEventArgs e)
-        {
-            STstatus.Visibility = Visibility.Hidden;
-        }
+        //private void btClose_Click(object sender, RoutedEventArgs e)
+        //{
+        //    STstatus.Visibility = Visibility.Hidden;
+        //}
     }
 }

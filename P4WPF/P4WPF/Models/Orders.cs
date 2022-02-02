@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace P4WPF.Models
 {
-    public class Orders
+    public class Orders : ExtendedOrder
     {
+        private ulong id;
+
+        public ulong ID
+        {
+            get { return id; }
+            set { id = value; OnPropertyChanged(); }
+        }
         private ulong status_id;
 
         public ulong Status_ID
         {
             get { return status_id; }
-            set { status_id = value; }
+            set { status_id = value; OnPropertyChanged();  }
         }
         private ulong pizza_id;
 
@@ -29,27 +36,7 @@ namespace P4WPF.Models
             get { return user_id; }
             set { user_id = value; }
         }
-        private string name;
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        private string pizza_name;
-
-        public string Pizza_Name
-        {
-            get { return pizza_name; }
-            set { pizza_name = value; }
-        }
-        private string status;
-
-        public string Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
     }
     
 }

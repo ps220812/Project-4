@@ -1,6 +1,4 @@
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Ingredients.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MainWindow.g.cs
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Managment.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MedewerkerMenu.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\App.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF_MarkupCompile.cache
@@ -9,10 +7,8 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.exe.config
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.exe
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.pdb
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Inlog.g.cs
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Ingredients.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Inlog.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MainWindow.baml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Managment.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MedewerkerMenu.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.g.resources
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.Properties.Resources.resources
@@ -63,4 +59,6 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Buffers.x
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Memory.xml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.g.cs
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
