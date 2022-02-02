@@ -72,9 +72,9 @@ namespace P4WPF
 
         }
 
-        private void btIngredients_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
             if (SelectedIngredient == null)
             {
                 // als er niks geselecteerd is komt er een error
@@ -85,7 +85,7 @@ namespace P4WPF
                 //delete het item
                 _db.DeleteIngredients(SelectedIngredient);
                 LoadAllList();
-                
+
 
             }
         }
