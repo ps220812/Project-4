@@ -30,26 +30,26 @@
                   SelectedItem="{Binding SelectedI}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Background="blue" Margin="1,10,1,0">
+                    <StackPanel Orientation="Horizontal" Height="auto" Background="blue" Margin="1,10,1,0"  Width="100">
                         <StackPanel  Orientation="Vertical" Background="Blue" Margin="0,5,100,5">
                             <TextBlock Width="Auto" Background="Blue"  Text="ID :" Margin="15,5, 0, 0" />
                             <TextBlock Width="Auto" Background="Blue"  Text="Ingredient :" Margin="15, 5, 0, 0" />
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0">
+                        <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0"  Width="100">
                             <TextBlock Width="Auto" Background="blue" Text="{Binding ID}" Margin="0,5,0,0"/>
-                            <TextBlock Width="Auto" Background="blue" Text="{Binding Ingredient}" Margin="0,5,0,0"/>
+                            <TextBlock Width="Auto" Background="blue" Text="{Binding IngredientName}" Margin="0,5,0,0"/>
 
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Frame x:Name="FrameIngredients" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" ></Frame>
 
-        
         <StackPanel Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Orientation="Horizontal" Height="auto">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="125">
-                <Button Height="50px"   Click="Button_Click">
-                    Add ingredients
+                <Button Height="50px"  x:Name="btEdit" Click="btEdit_Click">
+                    edit ingredients
                 </Button>
                 <Button Height="50px" Margin="0,5,0,0" x:Name="btLogout" Click="btLogout_Click">
                     log off
@@ -60,7 +60,7 @@
                     Delete
 
                 </Button>
-                <Button Height="50px" Margin="0,5,0,0" x:Name="btCreate" >
+                <Button Height="50px" Margin="0,5,0,0" x:Name="btCreate" Click="btCreate_Click" >
                     Create
                 </Button>
             </StackPanel>
@@ -68,11 +68,6 @@
 
 
         </StackPanel>
-        <StackPanel x:Name="stEdit" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2">
-            <TextBox FontSize="25" Height="40"> ingredient:</TextBox>
-            <TextBlock Height="50" DataContext="{Binding selectedKlant}" Text="{Binding IngredientName, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>
-            <!--<TextBox FontSize="30" Height="50">Unit:</TextBox>
-            <TextBlock Height="50" DataContext="{Binding Unit }" Text="{Binding , Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>-->
-        </StackPanel>
+
     </Grid>
 </Page>

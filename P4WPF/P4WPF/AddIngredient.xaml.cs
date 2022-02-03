@@ -12,15 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
+using P4WPF.Models;
+using System.Collections.ObjectModel;
 
 namespace P4WPF
 {
     /// <summary>
-    /// Interaction logic for Inlog.xaml
+    /// Interaction logic for AddIngredient.xaml
     /// </summary>
-    public partial class Inlog : Page
+    public partial class AddIngredient : Page
     {
-        public Inlog()
+        public AddIngredient()
         {
             InitializeComponent();
         }

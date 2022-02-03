@@ -50,6 +50,7 @@ namespace P4WPF
             InitializeComponent();
             LoadAllList();
             DataContext = this;
+            FrameIngredients.Content = new IngredientEdit();
         }
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
@@ -57,10 +58,6 @@ namespace P4WPF
             this.Visibility = Visibility.Hidden;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         public void LoadAllList()
         {
             //Laad de hele lijst van ingredienten in.
@@ -78,7 +75,7 @@ namespace P4WPF
             if (SelectedIngredient == null)
             {
                 // als er niks geselecteerd is komt er een error
-                MessageBox.Show("Je hebt geen Klant gekozen om te verwijderen.");
+                MessageBox.Show("Je hebt geen ingredient gekozen om te verwijderen.");
             }
             else
             {
@@ -89,5 +86,19 @@ namespace P4WPF
 
             }
         }
+
+        private void btCreate_Click(object sender, RoutedEventArgs e)
+        {
+            FrameIngredients.Content = new AddIngredient();
+            FrameIngredients.Visibility = Visibility.Visible;
+        }
+
+        private void btEdit_Click(object sender, RoutedEventArgs e)
+        {
+            FrameIngredients.Content = new IngredientEdit();
+            FrameIngredients.Visibility = Visibility.Visible;
+            
+        }
+
     }
 }
