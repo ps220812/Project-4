@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use app\Models\items;
+use App\Models\items;
 use Illuminate\Database\Seeder;
 
 class ItemsSeeder extends Seeder
