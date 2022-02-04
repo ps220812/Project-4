@@ -15,8 +15,8 @@ class ItemsSeeder extends Seeder
     public function run()
     {
         $units = [
-            ['id' => 1, 'quantity' => 100, 'unit' => '2', 'ingredient' => '3', 'value' => 80],
-            ['id' => 2, 'quantity' => 10, 'unit' => '1', 'ingredient' => '2', 'value' => 40],
+            ['id' => 1, 'quantity' => 100, 'unit_id' => '2', 'ingredient_id' => '3', 'value' => 80],
+            ['id' => 2, 'quantity' => 10, 'unit_id' => '1', 'ingredient_id' => '2', 'value' => 40],
         ];
 
         foreach ($units as $unit) {
