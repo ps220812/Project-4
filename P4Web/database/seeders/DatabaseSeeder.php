@@ -19,11 +19,12 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserRoleSeeder::class,
             OrderStatusSeeder::class,
-            pizzaSeeder::class,
+            pizzaNameSeeder::class,
             ingredientSeeder::class,
             OrderSeeder::class,
             UnitSeeder::class,
             ItemsSeeder::class,
+            pizzaSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

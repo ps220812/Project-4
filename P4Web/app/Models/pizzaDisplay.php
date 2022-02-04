@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pizzaNames extends Model
+class pizzaDisplay extends Model
 {
     use HasFactory;
-    protected $table = 'pizzas';
+    protected $table = 'pizza_ingredients';
     protected $fillable = [
         'id',
-        'pizza_name',
+        'pizza_id',
+        'item_id',
     ];
-    public function displayPizza()
-    {
-        return $this->belongsTo(pizzaDisplay::class);
-    }
 }
