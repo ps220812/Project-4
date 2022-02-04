@@ -32,16 +32,16 @@
                   SelectedItem="{Binding SelectedOrder}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Background="blue" Margin="1,10,1,0">
-                        <StackPanel  Orientation="Vertical" Background="Blue"  Width="40"    Margin="0,5,100,5">
-                            <TextBlock Background="Blue"  Text="ID :" Margin="15,5, 0, 0" />
-                            
-                            <TextBlock Background="Blue"  Text="Pizza :" Margin="15, 5, 0, 0" />
-                            <TextBlock Background="Blue"  Text="Status : :" Margin="15, 5, 0, 0" />
+                    <StackPanel Orientation="Horizontal" Height="auto" Width="auto" Background="Green" Margin="1,10,1,0">
+                        <StackPanel  Orientation="Vertical" Background="Green"  Width="40"    Margin="0,5,100,5">
+                            <TextBlock Background="Green"  Text="ID :" Margin="15,5, 0, 0" />
+
+                            <TextBlock Background="Green"  Text="Pizza :" Margin="15, 5, 0, 0" />
+                            <TextBlock Background="Green"  Text="Status : :" Margin="15, 5, 0, 0" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0" Width="150">
-                            <TextBlock Background="blue" Text="{Binding ID}" Margin="0,5,0,0"/>
-                            <TextBlock Background="blue" Text="{Binding Pizza_Name}" Margin="0,5,0,0"/>
+                            <TextBlock Background="Green" Text="{Binding ID}" Margin="0,5,0,0"/>
+                            <TextBlock Background="Green" Text="{Binding Pizza_Name}" Margin="0,5,0,0"/>
                             <TextBlock Background="blue" Text="{Binding Status}" Margin="0,5,0,0"/>
                         </StackPanel>
                     </StackPanel>

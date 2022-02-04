@@ -6,8 +6,6 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF_MarkupComp
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.exe.config
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.exe
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\P4WPF.pdb
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Inlog.g.cs
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Inlog.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MainWindow.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\MedewerkerMenu.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.g.resources
@@ -61,6 +59,7 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Numerics.
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.baml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientAdd.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientEdit.g.cs
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\AddIngredient.g.cs
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\AddIngredient.baml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientEdit.baml

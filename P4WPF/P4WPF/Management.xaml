@@ -27,17 +27,17 @@
         </Grid.RowDefinitions>
         <ListView x:Name="lst" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2" 
                   ItemsSource="{Binding Ingredienten}" 
-                  SelectedItem="{Binding SelectedI}">
+                  SelectedItem="{Binding SelectedIngredient}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Height="auto" Background="blue" Margin="1,10,1,0"  Width="100">
-                        <StackPanel  Orientation="Vertical" Background="Blue" Margin="0,5,100,5">
-                            <TextBlock Width="Auto" Background="Blue"  Text="ID :" Margin="15,5, 0, 0" />
-                            <TextBlock Width="Auto" Background="Blue"  Text="Ingredient :" Margin="15, 5, 0, 0" />
+                    <StackPanel Orientation="Horizontal" Height="auto"  Margin="1,10,1,0"  Width="400">
+                        <StackPanel  Orientation="Vertical"  Margin="0,5,100,5">
+                            <TextBlock Width="Auto"   Text="ID :" Margin="15,5, 0, 0" />
+                            <TextBlock Width="Auto"   Text="Ingredient :" Margin="15, 5, 0, 0" />
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0"  Width="100">
-                            <TextBlock Width="Auto" Background="blue" Text="{Binding ID}" Margin="0,5,0,0"/>
-                            <TextBlock Width="Auto" Background="blue" Text="{Binding IngredientName}" Margin="0,5,0,0"/>
+                        <StackPanel Orientation="Vertical"  Margin="0,5,0,0"  Width="100">
+                            <TextBlock Width="Auto"  Text="{Binding ID}" Margin="0,5,0,0"/>
+                            <TextBlock Width="Auto"  Text="{Binding IngredientName}" Margin="0,5,0,0"/>
 
                         </StackPanel>
                     </StackPanel>
