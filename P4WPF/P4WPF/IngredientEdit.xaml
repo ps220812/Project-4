@@ -10,8 +10,8 @@
 
     <Grid Background="White">
         <StackPanel x:Name="stEdit" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" >
-            <TextBox FontSize="25" Height="40" Margin="0,50,0,0">ingredient:</TextBox>
-            <TextBlock Height="50" DataContext="{Binding selectedKlant}" Text="{Binding IngredientName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,25,0,0"/>
+            <TextBlock FontSize="25" Height="40" Margin="0,50,0,0">ingredient:</TextBlock>
+            <TextBox Height="50" DataContext="{Binding selectedKlant}" Text="{Binding IngredientName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,25,0,0"/>
             
             <!--<TextBox FontSize="30" Height="50">Unit:</TextBox>
             <TextBlock Height="50" DataContext="{Binding Unit }" Text="{Binding , Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>-->

@@ -295,52 +295,52 @@ namespace P4WPF.Models
             _connection.Close();
         }
 
-        //public bool UpdateUnits()
-        //{
-        //    bool result = false;
-        //    try
-        //    {
-        //        _connection.Open();
-        //        MySqlCommand command = _connection.CreateCommand();
-        //        command.CommandText =
-        //            @"UPDATE `orders` SET `status_id` = @status_id  WHERE `orders`.`id` = @id";
+        public bool UpdateItem(Ingredient ingredients)
+        {
+            bool result = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText =
+                    @"UPDATE `` SET `status_id` = @status_id  WHERE `orders`.`id` = @id";
 
 
-        //        command.Parameters.AddWithValue("@id", orders.ID);
+                command.Parameters.AddWithValue("@id", ingredients.ID);
 
-        //        switch (orders.Status_ID)
-        //        {
-        //            case 1:
-        //                command.Parameters.AddWithValue("@status_id", "2");
-        //                result = command.ExecuteNonQuery() >= 1;
-        //                break;
-        //            case 2:
-        //                command.Parameters.AddWithValue("@status_id", "3");
-        //                result = command.ExecuteNonQuery() >= 1;
-        //                break;
-        //            default:
+                switch (ingredients.Status_ID)
+                {
+                    case 1:
+                        command.Parameters.AddWithValue("@status_id", "2");
+                        result = command.ExecuteNonQuery() >= 1;
+                        break;
+                    case 2:
+                        command.Parameters.AddWithValue("@status_id", "3");
+                        result = command.ExecuteNonQuery() >= 1;
+                        break;
+                    default:
 
-        //                break;
-        //        }
+                        break;
+                }
 
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.Error.WriteLine(e.Message);
-        //        return false;
-        //    }
-        //    finally
-        //    {
-        //        if (_connection.State == ConnectionState.Open)
-        //        {
-        //            _connection.Close();
-        //        }
-        //    }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
 
-        //    return result;
-        //}
-    }
+            //    return result;
+            //}
+        }
 }
 
 

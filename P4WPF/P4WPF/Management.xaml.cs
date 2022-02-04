@@ -50,6 +50,7 @@ namespace P4WPF
             InitializeComponent();
             LoadAllList();
             DataContext = this;
+            FrameIngredients.Content = new AddIngredient();
             FrameIngredients.Content = new IngredientEdit();
         }
 
@@ -61,10 +62,17 @@ namespace P4WPF
         public void LoadAllList()
         {
             //Laad de hele lijst van ingredienten in.
-            foreach (Ingredient i in _db.GetAllingredients())
+            List<Ingredient> lstIngredients = _db.GetAllingredients();
+            if (lstIngredients == null)
             {
-                if (i == null) MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
-                Ingredienten.Add(i);
+                MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
+            }
+            else
+            {
+                foreach (Ingredient i in lstIngredients)
+                {
+                    Ingredienten.Add(i);
+                }
             }
 
         }

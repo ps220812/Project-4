@@ -117,7 +117,7 @@
     </Compile>
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\ExtendedOrder.cs" />
-    <Compile Include="Models\Ingredienten.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Base.cs" />
     <Compile Include="Models\Notify.cs" />
     <Compile Include="Models\Orders.cs" />
