@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ingredientSeeder::class,
             OrderSeeder::class,
             UnitSeeder::class,
+            ItemsSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }
