@@ -12,8 +12,11 @@ class pizzaController extends Controller
     {
         $pizzas = DB::table('pizzas')->get();
         return view('homepage', ['pizzas'=>$pizzas]);
-        $items = DB::table('items')->get();
-        return view('homepage', ['items'=>$items]);
+    }
+
+    public function show()
+    {
+
     }
     //
 }
