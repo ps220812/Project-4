@@ -11,8 +11,9 @@ class pizzaController extends Controller
     public function index()
     {
         $pizzas = DB::table('pizzas')->get();
-
         return view('homepage', ['pizzas'=>$pizzas]);
+        $items = DB::table('items')->get();
+        return view('homepage', ['items'=>$items]);
     }
     //
 }

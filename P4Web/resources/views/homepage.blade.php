@@ -6,7 +6,7 @@
     <body class="antialiased">
         <div>
             @foreach($pizzas as $pizza)
-                <div>
+                <div style="margin: 10px">
                     {{$pizza->pizza_name}}
                 </div>
             @endforeach
