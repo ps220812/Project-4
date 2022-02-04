@@ -16,9 +16,9 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
-            $table->foreignId('unit_id')->constrained('units');
-            $table->foreignId('ingredient_id')->constrained('ingredients');
-            $table->integer('value');
+            $table->foreignId('unit')->constrained('units');
+            $table->foreignId('ingredient')->constrained('ingredients');
+            $table->integer('price');
             $table->timestamps();
         });
     }
