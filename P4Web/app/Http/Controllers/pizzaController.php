@@ -8,15 +8,17 @@ use Illuminate\Http\Request;
 
 class pizzaController extends Controller
 {
+
+
     public function index()
     {
         $pizzas = DB::table('pizzas')->get();
         return view('homepage', ['pizzas'=>$pizzas]);
     }
 
-    public function show()
+    public function show($id)
     {
-
+        return view('show',['pizza' => $this->pizzas[$id]]);
     }
     //
 }

@@ -5,7 +5,7 @@
 @section('content')
     <body class="antialiased">
         <div>
-            <?php $x=0;?>
+            <?php $x=1;?>
             @foreach($pizzas as $pizza)
                 <div style="margin: 10px">
                     <a href="/menu-item/{{{$x++}}}">{{$pizza->pizza_name}}</a>
