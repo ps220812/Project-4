@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class pizzaController extends Controller
 {
 
-
     public function index()
     {
         $pizzas = DB::table('pizzas')->get();
@@ -18,7 +17,10 @@ class pizzaController extends Controller
 
     public function show($id)
     {
-        return view('show',['pizza' => $this->pizzas[$id]]);
+        $pizzas = DB::table('pizzas')->get();
+
+
+        return view('show',['pizza' => $pizzas[$id]]);
     }
     //
 }
