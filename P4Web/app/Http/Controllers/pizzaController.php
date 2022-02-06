@@ -22,5 +22,12 @@ class pizzaController extends Controller
 
         return view('show',['pizza' => $pizzas[$id]]);
     }
+
+    public function cart($id)
+    {
+        $pizzas = DB::table('pizzas')->get();
+
+        return view('homepage', ['order'=>$pizzas[$id]]);
+    }
     //
 }

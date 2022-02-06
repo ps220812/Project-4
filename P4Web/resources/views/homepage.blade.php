@@ -4,13 +4,20 @@
 @endsection
 @section('content')
     <body class="antialiased">
-        <div>
-            <?php $x=0; ?>
-            @foreach($pizzas as $pizza)
-                <div style="margin: 10px">
-                    <a href="/menu-item/{{{$x++}}}">{{$pizza->pizza_name}}</a>
-                </div>
-            @endforeach
+        <div style="display: flex;">
+            <div style="border: 2px solid black; margin:10px;">
+                <?php $x=0; ?>
+                @foreach($pizzas as $pizza)
+                        <a href="/menu-item/{{$x++}}">
+                            <div style="border:2px solid black; margin:2px; min-height:50px; width: 200px">
+                                {{$pizza->pizza_name}}
+                            </div>
+                        </a>
+                @endforeach
+            </div>
+            <div style="border: 2px solid black;">
+
+            </div>
         </div>
     </body>
 @endsection
