@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[pizzaController::class,'index']);
     Route::resource('pizzas', pizzaController::class);
 Route::get('/menu-item/{index}',[pizzaController::class, 'show']);
-
+Route::get('/orders/{index}',[pizzaController::class, 'orderStatus']);
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {

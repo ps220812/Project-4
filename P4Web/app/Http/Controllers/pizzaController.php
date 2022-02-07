@@ -23,11 +23,14 @@ class pizzaController extends Controller
         return view('show',['pizza' => $pizzas[$id]]);
     }
 
-    public function cart($id)
+    public function orderStatus()
     {
-        $pizzas = DB::table('pizzas')->get();
+        $order = DB::table('orders')
+            ->orderBy('id', 'DESC')
+            ->first();
 
-        return view('homepage', ['order'=>$pizzas[$id]]);
+
+        return view('status',['order' => $order]);
     }
     //
 }

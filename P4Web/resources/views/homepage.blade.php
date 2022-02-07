@@ -16,7 +16,9 @@
                 @endforeach
             </div>
             <div style="border: 2px solid black;">
-
+                <a href="/orders/{{}}">
+                    <button>order</button>
+                </a>
             </div>
         </div>
     </body>
