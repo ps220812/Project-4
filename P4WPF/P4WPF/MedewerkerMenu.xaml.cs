@@ -118,6 +118,14 @@ namespace P4WPF
             this.Visibility = Visibility.Hidden;
         }
 
+        private void btUnits_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            
+            units win = new units();
+            win.ShowDialog();
+        }
+
         //private void btMade_Click(object sender, RoutedEventArgs e)
         //{
 

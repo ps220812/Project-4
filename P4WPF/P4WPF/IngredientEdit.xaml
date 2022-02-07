@@ -10,11 +10,14 @@
 
     <Grid Background="White">
         <StackPanel x:Name="stEdit" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" >
-            <TextBlock FontSize="25" Height="40" Margin="0,50,0,0">ingredient:</TextBlock>
-            <TextBox Height="50" DataContext="{Binding selectedKlant}" Text="{Binding IngredientName, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,25,0,0"/>
-            
-            <!--<TextBox FontSize="30" Height="50">Unit:</TextBox>
-            <TextBlock Height="50" DataContext="{Binding Unit }" Text="{Binding , Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>-->
+            <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Qauntity:</TextBlock>
+            <TextBox Height="50" DataContext="{Binding SelectedItem }" Text="{Binding Quantity ,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>
+            <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Unit:</TextBlock>
+            <TextBox Height="50" DataContext="{Binding SelectedItem }" Text="{Binding Unit ,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>
+            <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Ingredient:</TextBlock>
+            <TextBox Height="50" DataContext="{Binding SelectedItem}" Text="{Binding IngredientName ,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>
+            <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Price:</TextBlock>
+            <TextBox Height="50" DataContext="{Binding SelectedItem }" Text="{Binding Price ,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>
             <Button  Height="40" FontSize="20" x:Name="btUpdate" Click="btUpdate_Click">Update.</Button>
         </StackPanel>
     </Grid>

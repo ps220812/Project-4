@@ -60,24 +60,12 @@
             <Button Height="50px" Margin="0,5,0,0" x:Name="btLogout" Click="btLogout_Click">
                 log off
             </Button>
-            
+            <Button Height="50px" Margin="0,5,0,0" x:Name="btUnits" Click="btUnits_Click">
+                 
+            </Button>
 
         </StackPanel>
 
-        <!--<StackPanel x:Name="STstatus" Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Visibility="Hidden" >
-            <Button x:Name="btMade" Height="40px" Click="btMade_Click" >
-                finished
-            </Button> 
-            <Button x:Name="btOven"  Height="40px" Margin="0,5,0,0" Click="btOven_Click" >
-                in progress
-            </Button>
-            <Button x:Name="btDeliverys"  Height="40px" Margin="0,5,0,0" Click="btDeliverys_Click">
-                delivery
-            </Button>
-            <Button x:Name="btClose"  Height="40px" Margin="0,5,0,0" Click="btClose_Click">
-                close menu
-            </Button>
-        </StackPanel>-->
 
     </Grid>
 </Page>

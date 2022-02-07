@@ -27,32 +27,43 @@
         </Grid.RowDefinitions>
         <ListView x:Name="lst" Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2" 
                   ItemsSource="{Binding Ingredienten}" 
-                  SelectedItem="{Binding SelectedIngredient}">
+                  SelectedItem="{Binding SelectedItem}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="auto"  Margin="1,10,1,0"  Width="400">
                         <StackPanel  Orientation="Vertical"  Margin="0,5,100,5">
-                            <TextBlock Width="Auto"   Text="ID :" Margin="15,5, 0, 0" />
+                            <TextBlock Width="Auto"   Text="Qauntity :" Margin="15,5, 0, 0" />
                             <TextBlock Width="Auto"   Text="Ingredient :" Margin="15, 5, 0, 0" />
+                            <TextBlock Width="Auto"   Text="Unit :" Margin="15,5, 0, 0" />
+                            <TextBlock Width="Auto"   Text="Price :" Margin="15, 5, 0, 0" />
                         </StackPanel>
                         <StackPanel Orientation="Vertical"  Margin="0,5,0,0"  Width="100">
-                            <TextBlock Width="Auto"  Text="{Binding ID}" Margin="0,5,0,0"/>
+                            <TextBlock Width="Auto"  Text="{Binding Quantity}" Margin="0,5,0,0"/>
                             <TextBlock Width="Auto"  Text="{Binding IngredientName}" Margin="0,5,0,0"/>
+                            <TextBlock Width="Auto"  Text="{Binding Unit_Name}" Margin="0,5,0,0"/>
+                            <TextBlock Width="Auto"  Text="{Binding Price}" Margin="0,5,0,0"/>
 
                         </StackPanel>
+
                     </StackPanel>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Frame x:Name="FrameIngredients" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" ></Frame>
+        <Frame x:Name="FrameIngredients" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" >
+            
+        </Frame>
 
         <StackPanel Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" Orientation="Horizontal" Height="auto">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="125">
                 <Button Height="50px"  x:Name="btEdit" Click="btEdit_Click">
-                    edit ingredients
+                    edit
                 </Button>
                 <Button Height="50px" Margin="0,5,0,0" x:Name="btLogout" Click="btLogout_Click">
                     log off
+                </Button>
+                <Button Height="50px" Margin="0,5,0,0" x:Name="btIngredient" Click="btIngredient_Click">
+                    add Ingredient
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="125">
@@ -63,11 +74,18 @@
                 <Button Height="50px" Margin="0,5,0,0" x:Name="btCreate" Click="btCreate_Click" >
                     Create
                 </Button>
+                <Button Height="50px" Margin="0,5,0,0" x:Name="btRefresh" Click="btRefresh_Click" >
+                    refresh
+                </Button>
             </StackPanel>
 
 
 
         </StackPanel>
-
+        <StackPanel x:Name="stAdd" Grid.Row="3" Grid.Column="4" Visibility="Hidden"> 
+            <TextBlock Text="Name:" />
+            <TextBox x:Name="tbAdd" DataContext="{Binding NewIngredient}" Text="{Binding IngredientName, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,0"/>
+            <Button x:Name="btAdd" Click="btAdd_Click">Add Ingredient</Button>
+        </StackPanel>
     </Grid>
 </Page>

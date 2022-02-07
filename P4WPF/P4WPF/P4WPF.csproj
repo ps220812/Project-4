@@ -73,6 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="units.xaml.cs">
+      <DependentUpon>units.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddIngredient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +110,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="units.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Management.xaml.cs">
@@ -119,6 +126,7 @@
     <Compile Include="Models\ExtendedOrder.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Base.cs" />
+    <Compile Include="Models\IngredientExtend.cs" />
     <Compile Include="Models\Notify.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\users.cs" />
