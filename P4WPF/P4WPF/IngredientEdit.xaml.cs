@@ -24,15 +24,31 @@ namespace P4WPF
     /// </summary>
     public partial class IngredientEdit : Page
     {
-        public IngredientEdit()
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
-            InitializeComponent();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        private ObservableCollection<Ingredient> obingredienten = new ObservableCollection<Ingredient>();
 
+
+        public ObservableCollection<Ingredient> Ingredienten
+        {
+            get { return obingredienten; }
+            set { obingredienten = value; }
+        }
+        Base _db = new Base();
+
+        public IngredientEdit(Ingredient SelectedItem)
+        {
+            
+            InitializeComponent();
+            DataContext = this;
         }
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
     }
 }

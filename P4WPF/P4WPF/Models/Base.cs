@@ -12,7 +12,7 @@ namespace P4WPF.Models
     {
         MySqlConnection _connection = new MySqlConnection("Server=localhost;Database=project4;Uid=root;Pwd=;");
 
-        public Users ReadRole( Users users)
+        public Users ReadRole(Users users)
         {
             try
             {
@@ -31,24 +31,24 @@ namespace P4WPF.Models
                 while (reader.Read())
                 {
 
-                        if (BCrypt.Net.BCrypt.Verify(users.Password, (string)reader["password"]))
-                        {
-                            Users login = new Users();
-                            login.Email = (string)reader["email"];
-                            login.Password = (string)reader["password"];
-                            login.ID = (ulong)reader["id"];
-                            login.Role_ID = (ulong)reader["role_id"];
-                            login.Role_Name = (string)reader["role_name"];
-                        if (login.Role_ID >= 2) 
+                    if (BCrypt.Net.BCrypt.Verify(users.Password, (string)reader["password"]))
+                    {
+                        Users login = new Users();
+                        login.Email = (string)reader["email"];
+                        login.Password = (string)reader["password"];
+                        login.ID = (ulong)reader["id"];
+                        login.Role_ID = (ulong)reader["role_id"];
+                        login.Role_Name = (string)reader["role_name"];
+                        if (login.Role_ID >= 2)
                         {
                             return login;
                         }
-                            
 
-                        }
+
                     }
+                }
 
-                
+
             }
 
 
@@ -90,11 +90,11 @@ namespace P4WPF.Models
                         login.ID = (ulong)reader["id"];
                         login.Role_ID = (ulong)reader["role_id"];
                         login.Role_Name = (string)reader["role_name"];
-                        if (login.Role_ID >= 5 )
+                        if (login.Role_ID >= 5)
                         {
                             return login;
                         }
-                        
+
 
                     }
                 }
@@ -136,7 +136,7 @@ namespace P4WPF.Models
                     Order.ID = (ulong)row["id"];
                     Order.Status_ID = (ulong)row["status_id"];
                     Order.Pizza_ID = (ulong)row["pizza_id"];
-                    Order.Status = (string)row["status"]; 
+                    Order.Status = (string)row["status"];
                     Order.Pizza_Name = (string)row["pizza_name"];
                     result.Add(Order);
                 }
@@ -171,7 +171,7 @@ namespace P4WPF.Models
 
 
                 command.Parameters.AddWithValue("@id", orders.ID);
-                
+
                 switch (orders.Status_ID)
                 {
                     case 1:
@@ -183,11 +183,11 @@ namespace P4WPF.Models
                         result = command.ExecuteNonQuery() >= 1;
                         break;
                     default:
-                        
+
                         break;
                 }
-                
-                
+
+
             }
             catch (Exception e)
             {
@@ -212,17 +212,24 @@ namespace P4WPF.Models
                 _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText =
-                    @"SELECT i.id, i.ingredient 
-                    FROM ingredients i";
+                    @"SELECT i.id, i.quantity, i.unit_id, i.ingredient_id, i.price, ing.id AS 'ingredient_id', ing.ingredient, u.id AS 'unit_id',u.unit_name
+                      FROM items i 
+                      INNER JOIN ingredients ing ON ing.id = i.ingredient_id 
+                      INNER JOIN units u ON u.id = i.unit_id";
                 MySqlDataReader reader = sql.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(reader);
                 foreach (DataRow row in table.Rows)
                 {
-                    Ingredient unit = new Ingredient();
-                    unit.ID = (ulong)row["id"];
-                    unit.IngredientName = (string)row["ingredient"];
-                    result.Add(unit);
+                    Ingredient Item = new Ingredient();
+                    Item.ID = (ulong)row["id"];
+                    Item.IngredientName = (string)row["ingredient"];
+                    Item.IngredientID = (ulong)row["ingredient_id"];
+                    Item.Unit = (ulong)row["unit_id"];
+                    Item.Quantity = (int)row["quantity"];
+                    Item.Price = (int)row["price"];
+                    Item.Unit_Name = (string)row["unit_name"];
+                    result.Add(Item);
                 }
 
             }
@@ -233,6 +240,95 @@ namespace P4WPF.Models
                 return null;
             }
 
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+
+            return result;
+        }
+        public bool SaveItem(Ingredient ingredients)
+        {
+            bool result = true;
+            try
+            {
+                if (_connection.State == ConnectionState.Closed)
+                {
+                    _connection.Open();
+                }
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    @"INSERT INTO `items` (quantity, unit_id, ingredient_id, price) 
+                      VALUES 
+                      (@qauntity, @unit_id, @ingredient_id, @price);";
+
+
+                sql.Parameters.AddWithValue("@quantity", ingredients.Quantity);
+                sql.Parameters.AddWithValue("@ingredient_id", ingredients.IngredientID);
+                sql.Parameters.AddWithValue("@unit_id", ingredients.Unit);
+                sql.Parameters.AddWithValue("@price", ingredients.Price);
+
+                sql.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("***InsertIntoItems***");
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        public void DeleteIngredients(Ingredient ingredients)
+        {
+            _connection.Open();
+            MySqlCommand cmd = _connection.CreateCommand();
+            if (ingredients.ID >= 0)
+            {
+                cmd.CommandText = "DELETE FROM items WHERE ID= @id";
+
+            }
+
+            cmd.Parameters.AddWithValue("@id", ingredients.ID);
+            cmd.ExecuteNonQuery();
+            _connection.Close();
+        }
+
+        public bool UpdateItem(Ingredient ingredients)
+        {
+            bool result = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText =
+                    @"UPDATE `` SET `id`=@id,`quantity`=@qauntity,`unit`=@unit,`ingredient`=@ingredient,`price`=@price WHERE `id` = @id";
+
+
+                command.Parameters.AddWithValue("@id", ingredients.ID);
+                command.Parameters.AddWithValue("@quantity", ingredients.Quantity);
+                command.Parameters.AddWithValue("@unit", ingredients.Unit);
+                command.Parameters.AddWithValue("@ingredient", ingredients.IngredientID);
+                command.Parameters.AddWithValue("@price", ingredients.Price);
+                result = command.ExecuteNonQuery() >= 1;
+
+
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
             finally
             {
                 if (_connection.State == ConnectionState.Open)
@@ -254,14 +350,14 @@ namespace P4WPF.Models
                 }
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText =
-                    @"INSERT INTO ingredients
-                        (ID, Ingredient)
-                        VALUES
-                        (@id, @ingredien);";
+                    @"INSERT INTO `ingredients` (ingredient) 
+                      VALUES 
+                      (@ingredient);";
 
 
-                sql.Parameters.AddWithValue("@id", ingredients.ID);
                 sql.Parameters.AddWithValue("@ingredient", ingredients.IngredientName);
+
+
                 sql.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -280,56 +376,35 @@ namespace P4WPF.Models
             }
             return result;
         }
-        public void DeleteIngredients(Ingredient ingredients)
+
+        public List<Ingredient> GetUnit()
         {
-            _connection.Open();
-            MySqlCommand cmd = _connection.CreateCommand();
-            if (ingredients.ID > 0)
-            {
-                cmd.CommandText = "DELETE FROM ingredients WHERE ID= @id";
-
-            }
-
-            cmd.Parameters.AddWithValue("@id", ingredients.ID);
-            cmd.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public bool UpdateItem(Ingredient ingredients)
-        {
-            bool result = false;
+            List<Ingredient> result = new List<Ingredient>();
             try
             {
                 _connection.Open();
-                MySqlCommand command = _connection.CreateCommand();
-                command.CommandText =
-                    @"UPDATE `` SET `status_id` = @status_id  WHERE `orders`.`id` = @id";
-
-
-                command.Parameters.AddWithValue("@id", ingredients.ID);
-
-                switch (ingredients.Status_ID)
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    @"SELECT u.unit_name 
+                      FROM units u";
+                MySqlDataReader reader = sql.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                foreach (DataRow row in table.Rows)
                 {
-                    case 1:
-                        command.Parameters.AddWithValue("@status_id", "2");
-                        result = command.ExecuteNonQuery() >= 1;
-                        break;
-                    case 2:
-                        command.Parameters.AddWithValue("@status_id", "3");
-                        result = command.ExecuteNonQuery() >= 1;
-                        break;
-                    default:
-
-                        break;
+                    Ingredient Item = new Ingredient();
+                    Item.Unit_Name = (string)row["unit_name"];
+                    result.Add(Item);
                 }
-
 
             }
             catch (Exception e)
             {
-                Console.Error.WriteLine(e.Message);
-                return false;
+
+                Console.Write(e.Message);
+                return null;
             }
+
             finally
             {
                 if (_connection.State == ConnectionState.Open)
@@ -338,9 +413,10 @@ namespace P4WPF.Models
                 }
             }
 
-            //    return result;
-            //}
+            return result;
         }
+    }
+    
 }
 
 

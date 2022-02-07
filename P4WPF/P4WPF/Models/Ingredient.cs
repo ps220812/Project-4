@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P4WPF.Models
 {
-    public class Ingredient : Notify
+    public class Ingredient : IngredientExtend
     {
         private ulong id;
 
@@ -15,12 +15,34 @@ namespace P4WPF.Models
             get { return id; }
             set { id = value; }
         }
-        private string ingredient;
 
-        public string IngredientName
+        private int quantity;
+
+        public int Quantity
         {
-            get { return ingredient; }
-            set { ingredient = value; }
+            get { return quantity; }
+            set { quantity = value; }
+        }
+        private ulong unit_id;
+
+        public ulong Unit
+        {
+            get { return unit_id; }
+            set { unit_id = value; }
+        }
+        private ulong ingredient_id;
+
+        public ulong IngredientID
+        {
+            get { return ingredient_id; }
+            set { ingredient_id = value; }
+        }
+        private int price;
+
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
         }
     }
 }

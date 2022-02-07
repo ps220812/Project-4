@@ -49,25 +49,6 @@ namespace P4WPF
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-                //bool Correct = BCrypt.Net.BCrypt.Verify(TxtPassword.Password, password);
-                //if (Correct == true)
-                //{
-                //    switch (Userss[i].RoleName)
-                //    {
-                //        case "management":
-                //            MessageBox.Show("manager login");
-                //            break;
-                //        case "admin":
-                //            MessageBox.Show("gelukt");
-                //            break;
-                //        default:
-                //            break;
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("error");
-                //}
             Users login = _db.ReadRole(Userss);
             Users loginM = _db.ReadForM(Userss);
             if (loginM != null)
@@ -79,6 +60,8 @@ namespace P4WPF
                         break;
 
                     default:
+                        TxtUser.Text = " ";
+                        txtPass.Text = " ";
                         mainFrame.Content = new Management();
                         mainFrame.Visibility = Visibility.Visible;
                         break;
@@ -93,8 +76,11 @@ namespace P4WPF
                         break;
 
                     default:
+                        TxtUser.Text = " ";
+                        txtPass.Text = " ";
                         mainFrame.Content = new MedewerkerMenu();
                         mainFrame.Visibility = Visibility.Visible;
+  
                         break;
                 }
             }

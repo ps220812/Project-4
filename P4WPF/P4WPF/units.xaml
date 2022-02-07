@@ -1,0 +1,48 @@
+﻿<Window x:Class="P4WPF.units"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P4WPF"
+        mc:Ignorable="d"
+        Title="units" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" Grid.Column="1" Grid.RowSpan="6"
+                  ItemsSource="{Binding Ingredienten}" 
+                  SelectedItem="{Binding SelectedItem}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Height="auto"  Margin="1,10,1,0"  Width="200">
+                        <StackPanel  Orientation="Vertical"  Margin="0,5,100,5">
+                            <TextBlock Width="Auto"   Text="Unit :" Margin="15,5, 0, 0" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Vertical"  Margin="0,5,50,5">
+                            <TextBlock Width="Auto"   Text="{Binding Unit_Name}"  Margin="15,5, 0, 0" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
