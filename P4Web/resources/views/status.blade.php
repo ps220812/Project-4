@@ -12,6 +12,9 @@
             <div style="margin:10px">
                 Uw bestelling is nu {{$order->status}}
             </div>
+            <a href="/" onclick="cancelOrder()">
+                annuleer bestelling
+            </a>
         </div>
     </body>
 @endsection

@@ -24,6 +24,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('homepage');
 // });
+
+// route::controller(pizzaController::class)->group(function()
+// {
+//     route::get('/', 'index');
+//     route::get('menu-item/{index}', 'show');
+//     route::get('orders/{index}', 'orderStatus');
+// });
+
 Route::get('/',[pizzaController::class,'index']);
     Route::resource('pizzas', pizzaController::class);
 Route::get('/menu-item/{index}',[pizzaController::class, 'show']);

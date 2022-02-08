@@ -6,7 +6,7 @@
     <body class="antialiased">
         <div>
             <div style="margin: 10px">
-                {{$pizza->pizza_name}}
+                {{$orders->pizza_name}}
             </div>
         </div>
     </body>
