@@ -26,8 +26,12 @@ class pizzaController extends Controller
     public function orderStatus()
     {
         $order = DB::table('orders')
-            ->orderBy('id', 'DESC')
+            ->join('order_status', 'orders.status_id', '=', 'order_status.id')
+            ->join('pizzas', 'orders.pizza_id', '=', 'pizzas.id')
+            ->orderBy('orders.id', 'DESC')
             ->first();
+
+
 
 
         return view('status',['order' => $order]);

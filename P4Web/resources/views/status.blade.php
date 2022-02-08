@@ -7,10 +7,10 @@
         <div style="display: flex;">
             <div style="margin:10px">
                 U heeft besteld:
-                {{$order->pizza_id}}
+                {{$order->pizza_name}}
             </div>
             <div style="margin:10px">
-                Uw bestelling is nu {{$order->status_id}}
+                Uw bestelling is nu {{$order->status}}
             </div>
         </div>
     </body>
