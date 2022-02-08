@@ -30,22 +30,30 @@ namespace P4WPF
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        private ObservableCollection<Ingredient> obUnits = new ObservableCollection<Ingredient>();
+        private ObservableCollection<unit> obunits = new ObservableCollection<unit>();
 
 
-        public ObservableCollection<Ingredient> Units
+        public ObservableCollection<unit> Units
         {
-            get { return obUnits; }
-            set { obUnits = value; }
+            get { return obunits; }
+            set { obunits = value; }
         }
+
+
         Base _db = new Base();
-        private Ingredient selecteditem;
-        public Ingredient SelectedItem
+        private unit selecteditem;
+        public unit SelectedItem
         {
             get { return selecteditem; }
-            set { selecteditem = value; OnPropertyChanged(); OnPropertyChanged("lst"); }
+            set { selecteditem = value; OnPropertyChanged(); }
         }
+        private unit newunit = new unit();
 
+        public unit NewUnit
+        {
+            get { return newunit; }
+            set { newunit = value; OnPropertyChanged(); }
+        }
         public units()
         {
             InitializeComponent();
@@ -55,19 +63,45 @@ namespace P4WPF
         public void LoadAllList()
         {
             //Laad de hele lijst van ingredienten in.
-            List<Ingredient> lstUnits = _db.GetUnit();
+            List<unit> lstUnits = _db.GetUnit();
             if (lstUnits == null)
             {
                 MessageBox.Show("Er is iets mis met je database. De database is leeg. ");
             }
             else
             {
-                foreach (Ingredient i in lstUnits)
+                foreach (unit i in lstUnits)
                 {
                     Units.Add(i);
                 }
             }
 
+        }
+
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedItem == null)
+                {
+                    // als er niks geselecteerd is komt er een error
+                    MessageBox.Show("Je hebt geen ingredient gekozen om te verwijderen.");
+                }
+                else
+                {
+                    //delete het item
+                    _db.DeleteUnit(SelectedItem);
+               
+
+                }
+        }
+
+        private void tbAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewUnit== null)
+            {
+                MessageBox.Show("Leeg textboxen. je moet een waarde geven om een costumer toe te voegen.");
+                return;
+            }
+            _db.SaveUnit(NewUnit);
         }
     }
 }

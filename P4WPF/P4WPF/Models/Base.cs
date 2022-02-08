@@ -377,22 +377,23 @@ namespace P4WPF.Models
             return result;
         }
 
-        public List<Ingredient> GetUnit()
+        public List<unit> GetUnit()
         {
-            List<Ingredient> result = new List<Ingredient>();
+            List<unit> result = new List<unit>();
             try
             {
                 _connection.Open();
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText =
-                    @"SELECT u.unit_name 
+                    @"SELECT u.unit_name, u.id 
                       FROM units u";
                 MySqlDataReader reader = sql.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(reader);
                 foreach (DataRow row in table.Rows)
                 {
-                    Ingredient Item = new Ingredient();
+                    unit Item = new unit();
+                    Item.ID = (ulong)row["id"];
                     Item.Unit_Name = (string)row["unit_name"];
                     result.Add(Item);
                 }
@@ -415,8 +416,61 @@ namespace P4WPF.Models
 
             return result;
         }
+        public void DeleteUnit(unit units)
+        {
+            _connection.Open();
+            MySqlCommand cmd = _connection.CreateCommand();
+            if (units.ID >= 0)
+            {
+                cmd.CommandText = "DELETE FROM units WHERE ID= @id";
+
+            }
+
+            cmd.Parameters.AddWithValue("@id", units.ID);
+            cmd.ExecuteNonQuery();
+            _connection.Close();
+        }
+
+        public bool SaveUnit(unit units)
+        {
+            bool result = true;
+            try
+            {
+                if (_connection.State == ConnectionState.Closed)
+                {
+                    _connection.Open();
+                }
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    @"INSERT INTO `units` (unit_name) 
+                      VALUES 
+                      (@unit_name);";
+
+
+                sql.Parameters.AddWithValue("@unit_name", units.Unit_Name);
+
+
+                sql.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("***InsertIntoUnit***");
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+
     }
-    
+
 }
 
 

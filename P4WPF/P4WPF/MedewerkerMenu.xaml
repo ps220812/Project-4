@@ -39,10 +39,10 @@
                             <TextBlock Background="Green"  Text="Pizza :" Margin="15, 5, 0, 0" />
                             <TextBlock Background="Green"  Text="Status : :" Margin="15, 5, 0, 0" />
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Background="Blue" Margin="0,5,0,0" Width="150">
+                        <StackPanel Orientation="Vertical" Background="Green" Margin="0,5,0,0" Width="150">
                             <TextBlock Background="Green" Text="{Binding ID}" Margin="0,5,0,0"/>
                             <TextBlock Background="Green" Text="{Binding Pizza_Name}" Margin="0,5,0,0"/>
-                            <TextBlock Background="blue" Text="{Binding Status}" Margin="0,5,0,0"/>
+                            <TextBlock Background="Green" Text="{Binding Status}" Margin="0,5,0,0"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

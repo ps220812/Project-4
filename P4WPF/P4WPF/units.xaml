@@ -29,20 +29,27 @@
             
         </Grid.RowDefinitions>
         <ListView Grid.Row="1" Grid.Column="1" Grid.RowSpan="6"
-                  ItemsSource="{Binding Ingredienten}" 
+                  ItemsSource="{Binding Units}" 
                   SelectedItem="{Binding SelectedItem}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Height="auto"  Margin="1,10,1,0"  Width="200">
-                        <StackPanel  Orientation="Vertical"  Margin="0,5,100,5">
+                    <StackPanel Orientation="Horizontal" Height="auto"  Margin="1,10,1,0">
+                        <StackPanel  Orientation="Vertical"  Margin="0,5,0,5">
                             <TextBlock Width="Auto"   Text="Unit :" Margin="15,5, 0, 0" />
                         </StackPanel>
-                        <StackPanel  Orientation="Vertical"  Margin="0,5,50,5">
+                        <StackPanel  Orientation="Vertical"  Margin="0,5,0,5">
                             <TextBlock Width="Auto"   Text="{Binding Unit_Name}"  Margin="15,5, 0, 0" />
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Grid.Column="1" Grid.Row="7" x:Name="btDelete" Click="btDelete_Click">Unstonk</Button>
+        
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" >
+            <TextBlock FontSize="30"> unit: </TextBlock>
+            <TextBox x:Name="tbUnit" DataContext="{Binding NewUnit}" Text="{Binding Unit_Name ,UpdateSourceTrigger=PropertyChanged}" FontSize="40" Margin="0,20,0,0"></TextBox>
+        </StackPanel>
+        <Button Grid.Column="2" Grid.Row="5" x:Name="tbAdd" Click="tbAdd_Click">Extra</Button>
     </Grid>
 </Window>
