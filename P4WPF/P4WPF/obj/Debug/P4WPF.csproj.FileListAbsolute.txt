@@ -59,10 +59,9 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Numerics.
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Management.baml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientEdit.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\AddIngredient.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\AddIngredient.baml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\IngredientEdit.baml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\units.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\units.baml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\EditIngredient.g.cs
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\EditIngredient.baml

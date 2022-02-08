@@ -92,10 +92,5 @@ namespace P4WPF
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Content = new MedewerkerMenu();
-            mainFrame.Visibility = Visibility.Visible;
-        }
     }
 }

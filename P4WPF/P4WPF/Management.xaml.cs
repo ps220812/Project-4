@@ -43,7 +43,7 @@ namespace P4WPF
         public Ingredient SelectedItem
         {
             get { return selecteditem; }
-            set { selecteditem = value; OnPropertyChanged(); OnPropertyChanged("lst"); }
+            set { selecteditem = value; OnPropertyChanged();  }
         }
 
         private Ingredient newingredient = new Ingredient();
@@ -59,7 +59,8 @@ namespace P4WPF
             LoadAllList();
             DataContext = this;
             FrameIngredients.Content = new AddIngredient();
-            FrameIngredients.Content = new IngredientEdit(SelectedItem);
+            
+           
         }
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
@@ -112,8 +113,13 @@ namespace P4WPF
 
         private void btEdit_Click(object sender, RoutedEventArgs e)
         {
-            FrameIngredients.Content = new IngredientEdit(selecteditem);
-            FrameIngredients.Visibility = Visibility.Visible;
+            if(selecteditem == null)
+            {
+                MessageBox.Show("U heeft geen item geselecteerd.");
+            }
+            EditIngredient win = new EditIngredient(SelectedItem);
+            win.ShowDialog();
+            
 
         }
 
