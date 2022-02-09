@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\
+C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\
 P4WPF
 none
 false
 DEBUG;TRACE
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\App.xaml
+C:\wamp64\www\pgr\P4\P4WPF\P4WPF\App.xaml
 71915654441
 
-20-1646332382
-21826792302
+211806275547
+21-1951230181
 AddIngredient.xaml;EditIngredient.xaml;MainWindow.xaml;Management.xaml;MedewerkerMenu.xaml;Pizza.xaml;units.xaml;
 
-False
+True
 
