@@ -54,14 +54,14 @@
             <Button Height="50px" x:Name="btOrder" Click="btOrder_Click">
                 Show the orders.
             </Button>
-            <Button Height="50px" Margin="0,5,0,0" x:Name="btStatus" Click="btStatus_Click">
+            <Button Height="50px" Margin="0,5,0,0" x:Name="btStatus" Click="btStatus_Click" >
                 Change order status
             </Button>
             <Button Height="50px" Margin="0,5,0,0" x:Name="btLogout" Click="btLogout_Click">
                 log off
             </Button>
             <Button Height="50px" Margin="0,5,0,0" x:Name="btUnits" Click="btUnits_Click">
-                 
+                 add units
             </Button>
 
         </StackPanel>

@@ -54,6 +54,13 @@ namespace P4WPF
             get { return newunit; }
             set { newunit = value; OnPropertyChanged(); }
         }
+        private unit updateunit = new unit();
+
+        public unit UpdateUnit
+        {
+            get { return updateunit; }
+            set { updateunit = value; OnPropertyChanged(); }
+        }
         public units()
         {
             InitializeComponent();
@@ -102,6 +109,12 @@ namespace P4WPF
                 return;
             }
             _db.SaveUnit(NewUnit);
+        }
+
+        private void btEdit_Click(object sender, RoutedEventArgs e)
+        {
+            _db.UpdateUnits(UpdateUnit);
+            this.Close();
         }
     }
 }

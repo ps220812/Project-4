@@ -353,7 +353,7 @@ namespace P4WPF.Models
                 _connection.Open();
                 MySqlCommand command = _connection.CreateCommand();
                 command.CommandText =
-                    @"UPDATE `` SET `id`=@id,`quantity`=@qauntity,`unit`=@unit,`ingredient`=@ingredient,`price`=@price WHERE `id` = @id";
+                    @"UPDATE `` SET `id`=@id,`quantity`=@quantity,`unit`=@unit,`ingredient`=@ingredient,`price`=@price WHERE `id` = @id";
 
 
                 command.Parameters.AddWithValue("@id", ingredients.ID);
@@ -472,6 +472,7 @@ namespace P4WPF.Models
             }
             return result;
         }
+
         #endregion
         #region Pizza
 
