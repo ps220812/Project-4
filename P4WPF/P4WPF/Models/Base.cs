@@ -11,7 +11,7 @@ namespace P4WPF.Models
     public class Base
     {
         MySqlConnection _connection = new MySqlConnection("Server=localhost;Database=project4;Uid=root;Pwd=;");
-
+        #region Log in
         public Users ReadRole(Users users)
         {
             try
@@ -114,7 +114,8 @@ namespace P4WPF.Models
             }
             return null;
         }
-
+        #endregion
+        #region Orders
         public List<Orders> GetAllOrders()
         {
             List<Orders> result = new List<Orders>();
@@ -204,6 +205,8 @@ namespace P4WPF.Models
 
             return result;
         }
+        #endregion
+        #region Ingredients
         public List<Ingredient> GetAllingredients()
         {
             List<Ingredient> result = new List<Ingredient>();
@@ -250,6 +253,59 @@ namespace P4WPF.Models
 
             return result;
         }
+        public void DeleteIngredients(Ingredient ingredients)
+        {
+            _connection.Open();
+            MySqlCommand cmd = _connection.CreateCommand();
+            if (ingredients.ID >= 0)
+            {
+                cmd.CommandText = "DELETE FROM items WHERE ID= @id";
+
+            }
+
+            cmd.Parameters.AddWithValue("@id", ingredients.ID);
+            cmd.ExecuteNonQuery();
+            _connection.Close();
+        }        
+        public bool SaveIngredient(Ingredient ingredients)
+        {
+            bool result = true;
+            try
+            {
+                if (_connection.State == ConnectionState.Closed)
+                {
+                    _connection.Open();
+                }
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    @"INSERT INTO `ingredients` (ingredient) 
+                      VALUES 
+                      (@ingredient);";
+
+
+                sql.Parameters.AddWithValue("@ingredient", ingredients.IngredientName);
+
+
+                sql.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("***InsertIntoingredients***");
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        #endregion
+        #region Item
         public bool SaveItem(Ingredient ingredients)
         {
             bool result = true;
@@ -289,21 +345,6 @@ namespace P4WPF.Models
             }
             return result;
         }
-        public void DeleteIngredients(Ingredient ingredients)
-        {
-            _connection.Open();
-            MySqlCommand cmd = _connection.CreateCommand();
-            if (ingredients.ID >= 0)
-            {
-                cmd.CommandText = "DELETE FROM items WHERE ID= @id";
-
-            }
-
-            cmd.Parameters.AddWithValue("@id", ingredients.ID);
-            cmd.ExecuteNonQuery();
-            _connection.Close();
-        }
-
         public bool UpdateItem(Ingredient ingredients)
         {
             bool result = false;
@@ -339,44 +380,8 @@ namespace P4WPF.Models
 
             return result;
         }
-        public bool SaveIngredient(Ingredient ingredients)
-        {
-            bool result = true;
-            try
-            {
-                if (_connection.State == ConnectionState.Closed)
-                {
-                    _connection.Open();
-                }
-                MySqlCommand sql = _connection.CreateCommand();
-                sql.CommandText =
-                    @"INSERT INTO `ingredients` (ingredient) 
-                      VALUES 
-                      (@ingredient);";
-
-
-                sql.Parameters.AddWithValue("@ingredient", ingredients.IngredientName);
-
-
-                sql.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("***InsertIntoingredients***");
-                Console.WriteLine(e.Message);
-                result = false;
-            }
-
-            finally
-            {
-                if (_connection.State == ConnectionState.Open)
-                {
-                    _connection.Close();
-                }
-            }
-            return result;
-        }
-
+        #endregion
+        #region Unit
         public List<unit> GetUnit()
         {
             List<unit> result = new List<unit>();
@@ -430,7 +435,6 @@ namespace P4WPF.Models
             cmd.ExecuteNonQuery();
             _connection.Close();
         }
-
         public bool SaveUnit(unit units)
         {
             bool result = true;
@@ -468,9 +472,11 @@ namespace P4WPF.Models
             }
             return result;
         }
+        #endregion
+        #region Pizza
 
+        #endregion
     }
-
 }
 
 
