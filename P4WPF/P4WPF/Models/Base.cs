@@ -263,7 +263,7 @@ namespace P4WPF.Models
                 sql.CommandText =
                     @"INSERT INTO `items` (quantity, unit_id, ingredient_id, price) 
                       VALUES 
-                      (@qauntity, @unit_id, @ingredient_id, @price);";
+                      (@quantity, @unit_id, @ingredient_id, @price);";
 
 
                 sql.Parameters.AddWithValue("@quantity", ingredients.Quantity);

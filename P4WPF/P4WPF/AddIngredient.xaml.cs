@@ -53,7 +53,7 @@ namespace P4WPF
                 MessageBox.Show("Leeg textboxen. je moet een waarde geven om een costumer toe te voegen.");
                 return;
             }
-            _db.SaveItem(newitem);
+            _db.SaveItem(NewItem);
             this.Visibility = Visibility.Hidden;
         }
     }
