@@ -472,7 +472,39 @@ namespace P4WPF.Models
             }
             return result;
         }
+        public bool UpdateUnits(unit units)
+        {
+            bool result = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand command = _connection.CreateCommand();
+                command.CommandText =
+                    @"UPDATE `units` SET `id`=@id,`unit_name`=@unit_name WHERE ID=@id";
 
+
+                command.Parameters.AddWithValue("@id", units.ID);
+                command.Parameters.AddWithValue("@unit_name", units.Unit_Name);
+
+                result = command.ExecuteNonQuery() >= 1;
+
+
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+
+            return result;
+        }
         #endregion
         #region Pizza
         public bool SavePizza(Orders pizzas)
