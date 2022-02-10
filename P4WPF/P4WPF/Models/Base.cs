@@ -475,7 +475,35 @@ namespace P4WPF.Models
 
         #endregion
         #region Pizza
-
+        public bool SavePizza(Orders pizzas)
+        {
+            bool result = true;
+            try
+            {
+                if (_connection.State == ConnectionState.Closed)
+                {
+                    _connection.Open();
+                }
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText = @"INSERT INTO `pizzas` (pizza_name) VALUES (@pizza_name);";
+                sql.Parameters.AddWithValue("@unit_name", pizzas.Pizza_Name);
+                sql.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("***InsertIntoPizza***");
+                Console.WriteLine(e.Message);
+                result = false;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
         #endregion
     }
 }
