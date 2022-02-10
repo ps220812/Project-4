@@ -45,7 +45,7 @@ namespace P4WPF
         public unit SelectedItem
         {
             get { return selecteditem; }
-            set { selecteditem = value; OnPropertyChanged(); }
+            set { selecteditem = value; OnPropertyChanged(); OnPropertyChanged("tbUnitEdit"); }
         }
         private unit newunit = new unit();
 
@@ -113,8 +113,13 @@ namespace P4WPF
 
         private void btEdit_Click(object sender, RoutedEventArgs e)
         {
-            _db.UpdateUnits(UpdateUnit);
-            this.Close();
+            if (selecteditem == null)
+            {
+                MessageBox.Show("U heeft geen item geselecteerd.");
+            }
+            UnitEdit winEdit = new UnitEdit(SelectedItem);
+            winEdit.ShowDialog(); 
+         
         }
     }
 }

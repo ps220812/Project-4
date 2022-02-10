@@ -50,7 +50,7 @@
         </ListView>
 
 
-        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="2">
+        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="3">
             <Button Height="50px" x:Name="btOrder" Click="btOrder_Click">
                 Show the orders.
             </Button>
@@ -63,7 +63,9 @@
             <Button Height="50px" Margin="0,5,0,0" x:Name="btUnits" Click="btUnits_Click">
                  add units
             </Button>
-
+            <Button Height="50px" Margin="0,5,0,0" x:Name="btPizza" Click="btPizza_Click">
+                pizza's
+            </Button>
         </StackPanel>
 
 

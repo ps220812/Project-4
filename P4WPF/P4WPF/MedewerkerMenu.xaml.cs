@@ -125,24 +125,11 @@ namespace P4WPF
             win.ShowDialog();
         }
 
-        //private void btMade_Click(object sender, RoutedEventArgs e)
-        //{
+        private void btPizza_Click(object sender, RoutedEventArgs e)
+        {
+            Pizza winPizza = new Pizza();
+            winPizza.ShowDialog();
+        }
 
-        //}
-
-        //private void btOven_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void btDeliverys_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void btClose_Click(object sender, RoutedEventArgs e)
-        //{
-        //    STstatus.Visibility = Visibility.Hidden;
-        //}
     }
 }

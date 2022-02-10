@@ -80,6 +80,9 @@
     <Compile Include="Pizza.xaml.cs">
       <DependentUpon>Pizza.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UnitEdit.xaml.cs">
+      <DependentUpon>UnitEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="units.xaml.cs">
       <DependentUpon>units.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pizza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UnitEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

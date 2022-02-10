@@ -59,7 +59,6 @@ C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\units.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\units.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\EditIngredient.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\EditIngredient.baml
-C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Pizza.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\Pizza.baml
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\bin\Debug\BCrypt.Net-Next.dll
@@ -92,3 +91,6 @@ C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\Management.baml
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\Pizza.baml
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\units.baml
 C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.CopyComplete
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\UnitEdit.g.cs
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\UnitEdit.baml
+C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
