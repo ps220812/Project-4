@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <StackPanel x:Name="stEdit" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" >
-            <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Qauntity:</TextBlock>
+            <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Quantity:</TextBlock>
             <TextBox Height="50" DataContext="{Binding NewItem }" Text="{Binding Quantity ,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>
             <TextBlock FontSize="20" Height="30" Margin="5,10,0,0">Unit:</TextBlock>
             <TextBox Height="50" DataContext="{Binding NewItem }" Text="{Binding Unit ,UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="0,5,0,0"/>

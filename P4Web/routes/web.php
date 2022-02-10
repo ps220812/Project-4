@@ -36,6 +36,8 @@ Route::get('/',[pizzaController::class,'index']);
     Route::resource('pizzas', pizzaController::class);
 Route::get('/menu-item/{index}',[pizzaController::class, 'show']);
 Route::get('/orders/{index}',[pizzaController::class, 'orderStatus']);
+Route::get('/{index}',[pizzaController::class, 'cancelOrder']);
+
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {

@@ -94,3 +94,5 @@ C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.CopyComplete
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\UnitEdit.g.cs
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\UnitEdit.baml
 C:\Users\rexbo\Documents\school\Project-4\P4WPF\P4WPF\obj\Debug\P4WPF.csproj.AssemblyReference.cache
+C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\UnitEdit.g.cs
+C:\wamp64\www\pgr\P4\P4WPF\P4WPF\obj\Debug\UnitEdit.baml

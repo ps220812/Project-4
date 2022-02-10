@@ -12,7 +12,7 @@
             <div style="margin:10px">
                 Uw bestelling is nu {{$order->status}}
             </div>
-            <a href="/" onclick="cancelOrder()">
+            <a href="/{{$order->id}}">
                 annuleer bestelling
             </a>
         </div>

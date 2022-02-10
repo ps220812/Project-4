@@ -518,7 +518,7 @@ namespace P4WPF.Models
                 }
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText = @"INSERT INTO `pizzas` (pizza_name) VALUES (@pizza_name);";
-                sql.Parameters.AddWithValue("@unit_name", pizzas.Pizza_Name);
+                sql.Parameters.AddWithValue("@pizza_name", pizzas.Pizza_Name);
                 sql.ExecuteNonQuery();
             }
             catch (Exception e)

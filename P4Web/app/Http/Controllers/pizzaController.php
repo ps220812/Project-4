@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\orders;
 use app\models\pizzaNames;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -22,9 +23,6 @@ class pizzaController extends Controller
                 'status_id'=>1,
                 'pizza_id'=>$id
             ]);
-
-
-
         return view('show',['pizza' => $pizzas[$id]]);
     }
 
@@ -35,30 +33,25 @@ class pizzaController extends Controller
             ->join('pizzas', 'orders.pizza_id', '=', 'pizzas.id')
             ->orderBy('orders.id', 'DESC')
             ->first();
-
         return view('status',['order' => $order]);
+
     }
 
-    public function cancelOrder()
+    public function cancelOrder($id)
     {
-        DB::table('orders')
-            ->orderBy('orders.id', 'DESC')
-            ->limit(1)
-            ->delete();
+        $order = orders::find($id);
+        $order->delete();
+        $pizzas = DB::table('pizzas')->get();
+        return view('homepage', ['pizzas'=>$pizzas]);
     }
 
     public function orderPizza($id)
     {
-        DB::table('orders')
-            ->insert([
-                'status_id'=>1,
-                'pizza_id'=>$id
-            ]);
-        $order = DB::table('orders')
-            ->join('order_status', 'orders.status_id', '=', 'order_status.id')
-            ->join('pizzas', 'orders.pizza_id', '=', 'pizzas.id')
-            ->orderBy('orders.id', 'DESC')
-            ->first();
+        $order = orders::create([
+            'status_id' => 1,
+            'pizza_id' => $id
+        ]);
+
         return view('status',['order' => $order]);
     }
     //

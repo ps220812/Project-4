@@ -8,7 +8,7 @@
             <div style="border: 2px solid black; margin:10px;">
                 <?php $x=0; ?>
                 @foreach($pizzas as $pizza)
-                        <a href="/orders/" onclick="orderPizza({{$x}})">
+                        <a href="/orders/{{$pizza->id}}">
                             <div style="border:2px solid black; margin:2px; min-height:50px; width: 200px">
                                 {{$pizza->pizza_name}}
                             </div>

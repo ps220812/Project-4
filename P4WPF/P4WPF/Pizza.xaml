@@ -26,7 +26,8 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="2" Grid.Column="1">
             <TextBlock Text="Pizza naam" FontSize="30" />
-            <TextBox Text="Voer hier de pizza naam in" />
+            <TextBox Text="{Binding Pizza_Name, UpdateSourceTrigger=PropertyChanged}" DataContext="{Binding NewItem}"  />
+            <Button x:Name="btPizza" Content="Voeg pizza toe" Click="btPizza_Click" />
         </StackPanel>
     </Grid>
 </Window>
