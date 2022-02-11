@@ -15,17 +15,6 @@ class pizzaController extends Controller
         $pizzas = DB::table('pizzas')->get();
         return view('homepage', ['pizzas'=>$pizzas]);
     }
-
-    public function show($id)
-    {
-        $pizzas = DB::table('orders')
-            ->insert([
-                'status_id'=>1,
-                'pizza_id'=>$id
-            ]);
-        return view('show',['pizza' => $pizzas[$id]]);
-    }
-
     public function orderStatus()
     {
         $order = DB::table('orders')
@@ -47,12 +36,16 @@ class pizzaController extends Controller
 
     public function orderPizza($id)
     {
-        $order = orders::create([
-            'status_id' => 1,
-            'pizza_id' => $id
-        ]);
-
-        return view('status',['order' => $order]);
+        $order = new orders;
+        $order->status_id = 1;
+        $order->pizza_id = $id;
+        $order->save();
+        $status = DB::table('orders')
+            ->join('order_status', 'orders.status_id', '=', 'order_status.id')
+            ->join('pizzas', 'orders.pizza_id', '=', 'pizzas.id')
+            ->orderBy('orders.id', 'DESC')
+            ->first();
+        return view('status', ['order'=>$status]);
     }
     //
 }

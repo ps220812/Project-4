@@ -17,9 +17,6 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('status_id')->constrained('order_status');
             $table->foreignId('pizza_id')->constrained('pizzas');
-            //allows for users to have the value of NULL
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

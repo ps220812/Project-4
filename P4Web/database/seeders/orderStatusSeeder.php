@@ -15,7 +15,7 @@ class OrderStatusSeeder extends Seeder
     public function run()
     {
         $orderStatus = [
-            ['id' => 1, 'status' => 'ontvangen'],
+            ['id' => 1, 'status' => 'ontvangen door ons'],
             ['id' => 2, 'status' => 'in bereiding'],
             ['id' => 3, 'status' => 'in de oven'],
             ['id' => 4, 'status' => 'klaar in de winkel'],
