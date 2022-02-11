@@ -507,7 +507,80 @@ namespace P4WPF.Models
         }
         #endregion
         #region Pizza
-        public bool SavePizza(Orders pizzas)
+        public List<pizza> GetAllPizzas()
+        {
+            List<pizza> result = new List<pizza>();
+            try
+            {
+                _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText = "SELECT `id`, `pizza_name` FROM `pizzas`";
+                MySqlDataReader reader = sql.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                foreach (DataRow row in table.Rows)
+                {
+                    pizza pizza = new pizza();
+                    pizza.ID = (ulong)row["id"];
+                    pizza.Pizza_Name = (string)row["pizza_name"];
+                    result.Add(pizza);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                if(_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        public bool UpdatePizza(ulong pizzaId, pizza pizzas)
+        {
+            bool result = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    "UPDATE `pizzas p` SET `p.pizza_name`=@pn WHERE `id` = @id";
+                sql.Parameters.AddWithValue("@id", pizzaId);
+                sql.Parameters.AddWithValue("@pn", pizzas.Pizza_Name);
+
+                result = sql.ExecuteNonQuery() >= 1;
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                if(_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        public void DeletePizza(pizza pizzas)
+        {
+            _connection.Open();
+            MySqlCommand sql = _connection.CreateCommand();
+            if (pizzas.ID >= 0)
+            {
+                sql.CommandText = "DELETE FROM `pizzas` WHERE ID= @id";
+            }
+            sql.Parameters.AddWithValue("@id", pizzas.ID);
+            sql.ExecuteNonQuery();
+            _connection.Close();
+        }
+        public bool SavePizza(pizza pizzas)
         {
             bool result = true;
             try
@@ -518,7 +591,7 @@ namespace P4WPF.Models
                 }
                 MySqlCommand sql = _connection.CreateCommand();
                 sql.CommandText = @"INSERT INTO `pizzas` (pizza_name) VALUES (@pizza_name);";
-                sql.Parameters.AddWithValue("@unit_name", pizzas.Pizza_Name);
+                sql.Parameters.AddWithValue("@pizza_name", pizzas.Pizza_Name);
                 sql.ExecuteNonQuery();
             }
             catch (Exception e)

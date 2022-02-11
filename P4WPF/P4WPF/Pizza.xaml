@@ -24,9 +24,25 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="2" Grid.Column="1">
+        <StackPanel Grid.Row="2" Grid.RowSpan="3" Grid.Column="3">
             <TextBlock Text="Pizza naam" FontSize="30" />
-            <TextBox Text="Voer hier de pizza naam in" />
+            <TextBox Height="50px" Margin="0,0,0,10"  Text="{Binding Pizza_Name, UpdateSourceTrigger=PropertyChanged}" DataContext="{Binding NewItem}"  />
+            <Button Height="50px" Content="Voeg pizza toe" Click="btPizza_Click" Margin="0,0,0,10" x:Name="btAdd"  />
+            <Button Height="50px" Content="Edit pizza" Margin="0,0,0,10" Click="btEdit_click" x:Name="btEdit" />
+            <Button Height="50px" Content="Delete pizza" Margin="0,0,0,10" Click="btDelete_click" />
+            <Button Height="50px" Content="Refresh window" Click="BtRefresh_Click" />
         </StackPanel>
+        <ListView x:Name="lvPizza" Grid.Row="2" Grid.RowSpan="3" Grid.Column="1"
+                  ItemsSource="{Binding Pizzas}"
+                  SelectedItem="{Binding SelectedPizza}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="auto" Width="auto" Background="green" Margin="1,10,1,0">
+                        <TextBlock Text="{Binding ID}" Foreground="white" />
+                        <TextBlock Text="{Binding Pizza_Name}" Width="200px" Foreground="white" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

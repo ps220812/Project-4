@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
     {
         $orders = [
             ['id' => 1, 'status_id' => '1', 'pizza_id' => '1'],
-            ['id' => 2, 'status_id' => '2', 'pizza_id' => '2', 'user_id' => '6'],
+            ['id' => 2, 'status_id' => '2', 'pizza_id' => '2'],
         ];
 
         foreach ($orders as $role) {
