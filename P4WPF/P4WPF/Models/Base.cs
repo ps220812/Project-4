@@ -507,6 +507,51 @@ namespace P4WPF.Models
         }
         #endregion
         #region Pizza
+        public List<Orders> GetAllPizzas()
+        {
+            List<Orders> result = new List<Orders>();
+            try
+            {
+                _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText = "SELECT `id`, `pizza_name` FROM `pizzas`";
+                MySqlDataReader reader = sql.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                foreach (DataRow row in table.Rows)
+                {
+                    Orders pizza = new Orders();
+                    pizza.ID = (ulong)row["id"];
+                    pizza.Pizza_Name = (string)row["pizza_name"];
+                    result.Add(pizza);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            finally
+            {
+                if(_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        public void DeletePizza(Orders pizzas)
+        {
+            _connection.Open();
+            MySqlCommand sql = _connection.CreateCommand();
+            if (pizzas.ID >= 0)
+            {
+                sql.CommandText = "DELETE FROM `pizzas` WHERE ID= @id";
+            }
+            sql.Parameters.AddWithValue("@id", pizzas.ID);
+            sql.ExecuteNonQuery();
+            _connection.Close();
+        }
         public bool SavePizza(Orders pizzas)
         {
             bool result = true;

@@ -54,7 +54,7 @@ namespace P4WPF
         public Orders SelectedOrder
         {
             get { return selectedOrder; }
-            set { selectedOrder = value; OnPropertyChanged(); OnPropertyChanged("lstOrders"); }
+            set { selectedOrder = value; OnPropertyChanged(); }
         }
         public MedewerkerMenu()
         {
