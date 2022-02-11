@@ -28,30 +28,26 @@ namespace P4WPF
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs((name)));
         }
-
-        private ObservableCollection<Orders> obPizza = new ObservableCollection<Orders>();
-        public ObservableCollection<Orders> Pizzas
+        private ObservableCollection<pizza> obPizza = new ObservableCollection<pizza>();
+        public ObservableCollection<pizza> Pizzas
         {
             get { return obPizza; }
             set { obPizza = value; }
         }
-        private Orders newitem = new Orders();
-        public Orders NewItem
+        private pizza newitem = new pizza();
+        public pizza NewItem
         {
             get { return newitem; }
             set { newitem = value; OnPropertyChanged(); }
         }
-
-        Base _db = new Base();
-
-        private Orders selectedPizza;
-        public Orders SelectedPizza
+        private pizza selectedPizza;
+        public pizza SelectedPizza
         {
             get { return selectedPizza; }
             set { selectedPizza = value; OnPropertyChanged(); }
         }
-
-
+        
+        Base _db = new Base();
         public Pizza()
         {
             InitializeComponent();
@@ -61,14 +57,14 @@ namespace P4WPF
 
         public void LoadAllList()
         {
-            List<Orders> lstPizza = _db.GetAllPizzas();
+            List<pizza> lstPizza = _db.GetAllPizzas();
             if(lstPizza==null)
             {
                 MessageBox.Show("Er is iets mis met je database. De database is leeg");
             }
             else
             {
-                foreach (Orders i in lstPizza)
+                foreach (pizza i in lstPizza)
                 {
                     Pizzas.Add(i);
                 }
@@ -77,17 +73,35 @@ namespace P4WPF
 
         private void btPizza_Click(object sender, RoutedEventArgs e)
         {
-            if (newitem==null)
+            if (btAdd.Content.ToString() == "Voeg pizza toe")
             {
-                MessageBox.Show("Vul eerst een pizza in");
-                return;
+                if (newitem == null)
+                {
+                    MessageBox.Show("Vul eerst een pizza in");
+                    return;
+                }
+                _db.SavePizza(NewItem);
             }
-            _db.SavePizza(NewItem);
+            else
+            {
+                if(newitem==null)
+                {
+                    MessageBox.Show("Vul eerst een nieuwe pizza in");
+                }
+                _db.UpdatePizza(SelectedPizza.ID, NewItem);
+            }
         }
 
         private void btEdit_click(object sender, RoutedEventArgs e)
         {
-
+            if (btAdd.Content.ToString() == "Voeg pizza toe")
+            {
+                btAdd.Content = "Verander pizza";
+            }
+            else
+            {
+                btAdd.Content = "Voeg pizza toe";
+            }
         }
 
         private void btDelete_click(object sender, RoutedEventArgs e)
@@ -104,7 +118,7 @@ namespace P4WPF
         }
         private void BtRefresh_Click(object sender, RoutedEventArgs e)
         {
-            List<Orders> lstPizza = _db.GetAllPizzas();
+            List<pizza> lstPizza = _db.GetAllPizzas();
             if (lstPizza == null)
             {
                 MessageBox.Show("Er is iets mis met je database. De database is leeg");
@@ -112,7 +126,7 @@ namespace P4WPF
             else
             {
                 Pizzas.Clear();
-                foreach (Orders i in lstPizza)
+                foreach (pizza i in lstPizza)
                 {
                     Pizzas.Add(i);
                 }

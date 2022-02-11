@@ -76,6 +76,7 @@
     <Compile Include="EditIngredient.xaml.cs">
       <DependentUpon>EditIngredient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\pizza.cs" />
     <Compile Include="Models\unit.cs" />
     <Compile Include="Pizza.xaml.cs">
       <DependentUpon>Pizza.xaml</DependentUpon>

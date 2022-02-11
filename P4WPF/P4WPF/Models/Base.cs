@@ -507,9 +507,9 @@ namespace P4WPF.Models
         }
         #endregion
         #region Pizza
-        public List<Orders> GetAllPizzas()
+        public List<pizza> GetAllPizzas()
         {
-            List<Orders> result = new List<Orders>();
+            List<pizza> result = new List<pizza>();
             try
             {
                 _connection.Open();
@@ -520,7 +520,7 @@ namespace P4WPF.Models
                 table.Load(reader);
                 foreach (DataRow row in table.Rows)
                 {
-                    Orders pizza = new Orders();
+                    pizza pizza = new pizza();
                     pizza.ID = (ulong)row["id"];
                     pizza.Pizza_Name = (string)row["pizza_name"];
                     result.Add(pizza);
@@ -540,7 +540,35 @@ namespace P4WPF.Models
             }
             return result;
         }
-        public void DeletePizza(Orders pizzas)
+        public bool UpdatePizza(ulong pizzaId, pizza pizzas)
+        {
+            bool result = false;
+            try
+            {
+                _connection.Open();
+                MySqlCommand sql = _connection.CreateCommand();
+                sql.CommandText =
+                    "UPDATE `pizzas p` SET `p.pizza_name`=@pn WHERE `id` = @id";
+                sql.Parameters.AddWithValue("@id", pizzaId);
+                sql.Parameters.AddWithValue("@pn", pizzas.Pizza_Name);
+
+                result = sql.ExecuteNonQuery() >= 1;
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                if(_connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+            return result;
+        }
+        public void DeletePizza(pizza pizzas)
         {
             _connection.Open();
             MySqlCommand sql = _connection.CreateCommand();
@@ -552,7 +580,7 @@ namespace P4WPF.Models
             sql.ExecuteNonQuery();
             _connection.Close();
         }
-        public bool SavePizza(Orders pizzas)
+        public bool SavePizza(pizza pizzas)
         {
             bool result = true;
             try
